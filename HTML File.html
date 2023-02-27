@@ -1,0 +1,111 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title> Fatih Uyar </title>
+    <style>
+        body {
+            background-color: lightgray;
+            overflow: hidden;
+        }
+
+        #left-div {
+            width: 30vw;
+            float: left;
+            height: 96vh;
+            background-color: black;
+            margin: auto;
+        }
+
+        img {
+            width: 20vw;
+            height: auto;
+            /* üst sağ alt sol */
+            margin: 5vh 5vw 5vh 5vw;
+        }
+
+        #profession, h1 {
+            text-align: center;
+            color: lightgray;
+        }
+
+        #right-div {
+            float: left;
+            height: 100vh;
+            max-width: 50vw;
+            /* bir üstteki elementin %5'ini alır */
+            margin: 2%;
+        }
+
+        button {
+            margin-top: 1vh;
+        }
+
+        #messageBody {
+            height: 15vh;
+            width: 20vw;
+        }
+        #email {
+            background-color: darkgrey;
+            padding: 5%;
+            text-align: left;
+        }
+    </style>
+
+    <script>
+          function emailGonder()  {
+              var konu = document.getElementById('subject').value;
+              var mesaj = document.getElementById('messageBody').value;
+             window.open(`mailto:uyarfatih5@gmail.com?subject=${konu}&body=${mesaj}`);
+        }
+
+    </script>
+
+
+</head>
+<body>
+<div id="left-div">
+    <img src="ben.jpg">
+    <h1> Fatih Uyar </h1>
+    <h3 id="profession"> Elektrik Elektronik Mühendisi </h3>
+</div>
+<div id="right-div">
+    <h3> Hakkımda </h3>
+
+    <p> Mersin Üniversitesi'nde Elektrik-Elektronik Mühendisliği 1.sınıf öğrencisiyim.</p>
+    <h3> İletişim </h3>
+    <p><a href="https://www.linkedin.com/in/fatih-uyar-87205923a/"> Linkedin </a>
+    <p><a href="https://www.instagram.com/fatihuyar_7/?igshid=Yzg5MTU1MDY%3D"> Instagram </a>
+    <p><a href="https://twitter.com/fatihuyar_7"> Twitter </a>
+    <h3> Yetenekler </h3>
+    <ul>
+        <li>C</li>
+        <li>HTML</li>
+
+    </ul>
+
+    <div id="email">
+        <label>Konu:</label><br>
+        <input type="text" id="subject"><br>
+
+        <label>İçerik:</label><br>
+        <br>
+        <textarea id="messageBody">
+         </textarea><br>
+
+        <div>
+            <button onclick="emailGonder()"> Send me an Email
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
