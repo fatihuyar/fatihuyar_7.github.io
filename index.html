@@ -1,121 +1,45 @@
-<!doctype html>
-<head>
-    <meta charset="utf-8">
-    <title> Fatih Uyar </title>
-      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    >
-    <style>
-        body {
-            background-color: lightgray;
-            overflow: hidden;
-        }
-
-        #left-div {
-            width: 30vw;
-            float: left;
-            height: 96vh;
-            background-color: black;
-            margin: auto;
-        }
-
-        img {
-            width: 20vw;
-            height: auto;
-            /* üst sağ alt sol */
-            margin: 5vh 5vw 5vh 5vw;
-        }
-
-        #profession, h1 {
-            text-align: center;
-            color: lightgray;
-        }
-
-        #right-div {
-            float: left;
-            height: 100vh;
-            max-width: 50vw;
-            /* bir üstteki elementin %5'ini alır */
-            margin: 2%;
-        }
-
-        button {
-            margin-top: 1vh;
-        }
-
-        #messageBody {
-            height: 15vh;
-            width: 20vw;
-        }
-        #email {
-            background-color: darkgrey;
-            padding: 5%;
-            text-align: left;
-        }
-    </style>
-
-    <script>
-          function emailGonder()  {
-              var konu = document.getElementById('subject').value;
-              var mesaj = document.getElementById('messageBody').value;
-             window.open(`mailto:uyarfatih5@gmail.com?subject=${konu}&body=${mesaj}`);
-        }
-
-    </script>
-
-
-</head>
-<body>
-<div id="left-div">
-    <img src="ben.jpg">
-    <h1> Fatih Uyar </h1>
-    <h3 id="profession"> Elektrik Elektronik Mühendisi </h3>
-</div>
-<div id="right-div">
-    <h3> Hakkımda </h3>
-
-    <p> Mersin Üniversitesi'nde Elektrik-Elektronik Mühendisliği 1.sınıf öğrencisiyim.</p>
-    <h3> İletişim </h3>
-  <div class="team-social">
-        <a href="https://www.linkedin.com/in/fatih-uyar-87205923a/"><i class="fab fa-linkedin-in"></i></a><br />
-        <a href="https://www.instagram.com/fatihuyar_7/"><i class="fab fa-instagram"></i></a><br />
-        <a href="https://twitter.com/fatihuyar_7"><i class="fab fa-twitter"></i></a><br />
-
-    </div>
-    <h3> Yetenekler </h3>
-    <ul>
-        <li>C</li>
-        <li>HTML</li>
-        <li>AutoCAD</li>
-
-    </ul>
-  <h4>Çalışma Hayatım</h4>
-    <ul>
-        <li>RDT Teknoloj-Stajyer(2023-)</li>
-    </ul>
-    <div id="email">
-        <label>Konu:</label><br>
-        <input type="text" id="subject"><br>
-
-        <label>İçerik:</label><br>
-        <br>
-        <textarea id="messageBody">
-         </textarea><br>
-
-        <div>
-            <button onclick="emailGonder()"> Send me an Email
-            </button>
-        </div>
-    </div>
-</div>
-</body>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Fatih Uyar</title>
+
+
+
 </head>
 <body>
+<div class="grid-2">
+    <div class="section-1">
+        <img src="ben.jpg">
+        <h2>Fatih Uyar</h2>
+        <p>Elektrik Elektronik Mühendisi</p>
+        <a href="https://twitter.com/fatihuyar_7"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/fatihuyar_7/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/fatih-uyar-87205923a/"><i class="fab fa-linkedin"></i></a>
 
+
+
+
+    </div>
+    <div class="section-2">
+        <h2>Hakkımda</h2>
+        <p>Mersin Üniversitesi Elektrik Elektronik Mühendisliği 2.sınıf öğrencisiyim.</p>
+
+
+        <h2>Yetenekler</h2>
+        <li>Autocad</li>
+        <li>Html</li>
+        <li>C</li>
+        <h2>Çalışma Hayatım</h2>
+        <li>RDT Teknoloji-Stajyer(2023-)</li>
+
+        <h2>İletişim</h2>
+        <a href="uyarfatih5@gmail.com">uyarfatih5@gmail.com</a>
+    </div>
+</div>
 </body>
 </html>
