@@ -1,51 +1,325 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Fatih Uyar</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Fatih Uyar | Elektrik-Elektronik Mühendisi. Ağ sistemleri, RF/anten, yapay zekâ ve saha operasyonları üzerine çalışan kişisel portföy sitesi." />
+  <meta name="theme-color" content="#07111f" />
+  <title>Fatih Uyar | Elektrik-Elektronik Mühendisi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 
-
-
+  <style>
+    .publication-cards{display:grid;gap:18px;border-top:0!important}
+    .publication-card{display:grid;grid-template-columns:90px 1fr;gap:28px;padding:30px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.025));transition:.3s;position:relative;overflow:hidden}
+    .publication-card:hover{transform:translateY(-4px);border-color:rgba(112,225,245,.28)}
+    .publication-card::after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;background:rgba(112,225,245,.06);filter:blur(26px);right:-80px;bottom:-110px;pointer-events:none}
+    .publication-card .pub-year{font:800 14px "Space Grotesk",sans-serif;color:var(--accent);letter-spacing:.05em;padding-top:5px}
+    .pub-content{position:relative;z-index:1}
+    .pub-meta{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}
+    .pub-badge,.pub-status{display:inline-flex;align-items:center;padding:7px 11px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.04em;border:1px solid var(--line)}
+    .pub-badge{color:var(--accent);background:rgba(112,225,245,.06)}
+    .pub-status.published{color:#72f2b3;background:rgba(114,242,179,.07);border-color:rgba(114,242,179,.2)}
+    .pub-status.review{color:#ffd37a;background:rgba(255,211,122,.07);border-color:rgba(255,211,122,.2)}
+    .publication-card h3{font-size:24px;line-height:1.25;margin:0 0 9px;max-width:980px}
+    .pub-alt-title{color:#aebdce!important;font-style:italic;margin:0 0 13px!important;max-width:980px}
+    .pub-authors{color:#dce6f2!important;margin:0 0 18px!important}
+    .pub-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+    .pub-info-grid>div{padding:14px 15px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025);display:flex;flex-direction:column;gap:3px}
+    .pub-info-grid span{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+    .pub-info-grid strong{color:#e9f0f9;font-size:13px;line-height:1.45}
+    @media(max-width:700px){.publication-card{grid-template-columns:1fr;gap:8px;padding:22px}.pub-info-grid{grid-template-columns:1fr}.publication-card h3{font-size:21px}}
+  </style>
 </head>
 <body>
-<div class="grid-2">
-    <div class="section-1">
-        <img src="ben.jpg">
-        <h2>Fatih Uyar</h2>
-        <p>Elektrik Elektronik Mühendisi</p>
-        <a href="https://twitter.com/fatihuyar_7"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/fatihuyar_7/"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/fatih-uyar-87205923a/"><i class="fab fa-linkedin"></i></a>
+  <div class="page-grid"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Ana sayfa">
+      <span class="brand-mark">FU</span>
+      <span>Fatih Uyar</span>
+    </a>
+    <button class="menu-btn" aria-label="Menüyü aç/kapat" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Ana navigasyon">
+      <a href="#about">Hakkımda</a>
+      <a href="#experience">Deneyim</a>
+      <a href="#network">Ağ</a>
+      <a href="#projects">Projeler</a>
+      <a href="#publications">Yayınlar</a>
+      <a href="#skills">Yetenekler</a>
+      <a class="nav-cta" href="#contact">İletişim</a>
+    </nav>
+  </header>
 
+  <main>
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse"></span> Elektrik-Elektronik Mühendisi</div>
+        <h1>Teknolojiyi <span class="gradient-text">sahada çalışan</span> çözümlere dönüştürüyorum.</h1>
+        <p class="hero-text">Ağ sistemleri, RF/anten, CCTV,teknik saha operasyonlarında deneyim sahibi; araştırma ile uygulamayı bir araya getiren Elektrik-Elektronik Mühendisiyim.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Projelerimi İncele <span>↘</span></a>
+          <a class="btn btn-secondary" href="mailto:uyarfatih5@gmail.com">Bana Ulaş</a>
+        </div>
+        <div class="hero-metrics">
+          <div><strong>NET</strong><span>Ağ & Sistem</span></div>
+          <div><strong>RF</strong><span>Anten Sistemleri</span></div>
+        </div>
+      </div>
 
+      <div class="hero-visual reveal delay-1">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="portrait-card">
+          <div class="portrait-frame">
+            <img src="assets/profil.jpg" alt="Fatih Uyar profil fotoğrafı" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'" />
+            <div class="portrait-fallback">FU</div>
+          </div>
+          <div class="portrait-label">
+            <span class="status-dot"></span>
+            <div><strong>Fatih Uyar</strong><small>Konya, Turkey</small></div>
+          </div>
+        </div>
+        <div class="floating-chip chip-a">Networks</div>
+        <div class="floating-chip chip-b">RF Systems</div>
+        <div class="floating-chip chip-c">ESP32</div>
+        <div class="floating-chip chip-d">CCTV / IP Kamera</div>
+      </div>
+    </section>
 
+    <section class="marquee" aria-label="Uzmanlık alanları">
+      <div class="marquee-track">
+        <span>Elektrik-Elektronik</span><i>✦</i><span>Ağ Sistemleri</span><i>✦</i><span>Switch & Router</span><i>✦</i><span>RF & Anten</span><i>✦</i><span>CCTV / IP Kamera</span><i>✦</i><span>ESP32</span><i>✦</i><span>MATLAB</span><i>✦</i><span>Python</span><i>✦</i>
+      </div>
+    </section>
 
-    </div>
-    <div class="section-2">
-        <h2>Hakkımda</h2>
-        <p>Mersin Üniversitesi Elektrik Elektronik Mühendisliği 4.sınıf öğrencisiyim.</p>
+    <section class="section-shell two-col" id="about">
+      <div class="section-heading reveal">
+        <span class="section-index">01 / HAKKIMDA</span>
+        <h2>Mühendislik, araştırma ve saha deneyimi.</h2>
+      </div>
+      <div class="about-copy reveal delay-1">
+        <p>Mersin Üniversitesi Elektrik-Elektronik Mühendisliği mezunuyum. Üniversite, staj ve saha çalışmalarım boyunca ağ altyapıları, CCTV sistemleri, RF ölçümleri, anten uygulamaları ve teknik operasyonlar üzerine çalıştım.</p>
+        <p>Teknik problemleri yalnızca teorik olarak değil; devreye alma, arıza analizi, konfigürasyon, veri işleme, yazılım geliştirme ve performans değerlendirmesi gibi uçtan uca süreçlerle ele almayı seviyorum.</p>
+        <div class="mini-cards">
+          <div class="mini-card"><span>Odak</span><strong>Network + RF + IT</strong></div>
+          <div class="mini-card"><span>Yaklaşım</span><strong>Analitik & Uygulamalı</strong></div>
+        </div>
+      </div>
+    </section>
 
+    <section class="section-shell" id="experience">
+      <div class="section-heading reveal">
+        <span class="section-index">02 / DENEYİM</span>
+        <h2>Sahada öğrendim, projelerde geliştirdim.</h2>
+      </div>
+      <div class="timeline">
+        </article>
+        <article class="timeline-item reveal">
+          <div class="timeline-date">2022-</div>
+          <div class="timeline-body"><h3>RDT Teknoloji</h3><p class="role">Elektrik-Elektronik / Saha</p><p>EDS, altyapı, CCTV, IP kamera devreye alma, NVR bağlantıları, teknik çizim ve saha uygulamalarında görev.</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="timeline-date">2025</div>
+          <div class="timeline-body"><h3>Bilgi Teknolojileri ve İletişim Kurumu</h3><p class="role">Stajyer</p><p>Spektrum izleme, RF ölçümleri, yönlü antenler, baz istasyonu sertifikasyon süreçleri, radyo linkler ve saha denetimleri üzerine deneyim.</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="timeline-date">2024–2025</div>
+          <div class="timeline-body"><h3>Mersin Üniversitesi Bilgi İşlem Daire Başkanlığı</h3><p class="role">Ağ Hizmetleri</p><p>Kampüs ağ altyapısı, switch/sistem operasyonları, temel ağ izleme, IP tabanlı yapıların takibi ve teknik destek süreçlerinde uygulamalı çalışma.</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="timeline-date">2025–2026</div>
+          <div class="timeline-body"><h3>Mersin Üniversitesi Bilgi İşlem Daire Başkanlığı</h3><p class="role">Ağ Hizmetleri</p><p>Kampüs ağ altyapısı, switch/sistem operasyonları, temel ağ izleme, IP tabanlı yapıların takibi ve teknik destek süreçlerinde uygulamalı çalışma.</p></div>
+      </div>
+    </section>
 
-        <h2>Yetenekler</h2>
-        <li>Autocad</li>
-        <li>Html</li>
-        <li>C</li>
-        <li>Matlab</li>
-        <li>Python</li>
-        <li>MS Office</li>
-        <li>PLC</li>
-        <h2>Çalışma Hayatım</h2>
-        <li>RDT Teknoloji-Stajyer(2022-)</li>
-        <li>Mersin Üniversitesi BİDB(2024-2025)</li>
-        <li>Bilgi Teknolojileri ve İletişim Kurumu-Stajyer(Temmuz 2025-Ağustos 2025)</li>
-          <li>Mersin Üniversitesi BİDB(2025-)</li>
-        <h2>İletişim</h2>
-        <a href="uyarfatih5@gmail.com">uyarfatih5@gmail.com</a>
-    </div>
-</div>
+    <section class="section-shell" id="network">
+      <div class="section-heading reveal">
+        <span class="section-index">03 / AĞ ODAĞI</span>
+        <h2>Ağ altyapısı ve saha operasyonları.</h2>
+      </div>
+      <div class="project-grid network-grid">
+        <article class="project-card featured reveal">
+          <div class="project-number">01</div>
+          <div class="project-tag">Ağ Altyapısı</div>
+          <h3>Kampüs Ağ Operasyonları</h3>
+          <p>Switch tabanlı altyapıların takibi, bağlantı sorunlarının analizi, ağ topolojisinin anlaşılması ve saha destek süreçlerinde aktif rol aldım.</p>
+          <div class="project-tech"><span>Switching</span><span>IP Addressing</span><span>Troubleshooting</span></div>
+        </article>
+        <article class="project-card reveal delay-1">
+          <div class="project-number">02</div>
+          <div class="project-tag">CCTV & Güvenlik</div>
+          <h3>IP Kamera ve NVR Ağ Entegrasyonu</h3>
+          <p>PoE destekli kamera ağları, IP kamera devreye alma, kayıt altyapısı ve bağlantı/test süreçlerinde saha tecrübesi.</p>
+          <div class="project-tech"><span>CCTV</span><span>PoE</span><span>NVR</span></div>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-number">03</div>
+          <div class="project-tag">Kablosuz Bağlantı</div>
+          <h3>Kablosuz Ağ ve WISP Kurulumları</h3>
+          <p>Kablosuz erişim, repeater/WISP senaryoları, temel erişim noktası yapılandırmaları ve bağlantı optimizasyonu üzerine çalışma.</p>
+          <div class="project-tech"><span>Access Point</span><span>WISP</span><span>Wireless</span></div>
+        </article>
+        <article class="project-card reveal delay-1">
+          <div class="project-number">04</div>
+          <div class="project-tag">Sistem Yönetimi</div>
+          <h3>Ağ Destek ve Arıza Analizi</h3>
+          <p>Bağlantı kesintileri, cihaz erişimi, IP yapılandırması, saha kontrolleri ve temel servis sürekliliği problemlerine çözüm üretme deneyimi.</p>
+          <div class="project-tech"><span>SSH</span><span>Network Support</span><span>Diagnostics</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell" id="projects">
+      <div class="section-heading reveal">
+        <span class="section-index">04 / SEÇİLİ PROJELER</span>
+        <h2>Fikirden çalışan sisteme.</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card reveal">
+          <div class="project-number">01</div>
+          <div class="project-tag">RF · Optimizasyon</div>
+          <h3>Anten Dizilerinde Sıfırlama</h3>
+          <p>Faz/genlik kontrollü doğrusal anten dizilerinde null yönlendirme, kuantizasyon ve optimizasyon performansı üzerine araştırma.</p>
+          <div class="project-tech"><span>MATLAB</span><span>Array Processing</span></div>
+        </article>
+        <article class="project-card reveal delay-1">
+          <div class="project-number">02</div>
+          <div class="project-tag">ESP32 · Kablosuz</div>
+          <h3>ESP-NOW Uzaktan Kontrol</h3>
+          <p>Joystick verisini kablosuz olarak aktaran, servo mekanizmasını yöneten ve CRC tabanlı veri bütünlüğü kullanan ESP32 sistemi.</p>
+          <div class="project-tech"><span>ESP32</span><span>C/C++</span><span>ESP-NOW</span></div>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-number">03</div>
+          <div class="project-tag">Enerji · Tasarım</div>
+          <h3>Fotovoltaik Sistem Tasarımı</h3>
+          <p>Off-grid ve on-grid PV sistemlerinde panel, inverter, string/MPPT, akü ve kablo boyutlandırma çalışmaları.</p>
+          <div class="project-tech"><span>PV</span><span>Power Systems</span><span>MATLAB</span></div>
+        </article>
+        <article class="project-card reveal delay-1">
+          <div class="project-number">04</div>
+          <div class="project-tag">Saha · Otomasyon</div>
+          <h3>Drone ile Boya Püskürtme Sistemi</h3>
+          <p>Yüksek yapılarda boya uygulamasını daha güvenli hale getirmeyi amaçlayan, uzaktan kontrol ve püskürtme mekanizmasını birleştiren bitirme projesi.</p>
+          <div class="project-tech"><span>Embedded</span><span>Remote Control</span><span>Design</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell" id="publications">
+      <div class="section-heading reveal">
+        <span class="section-index">05 / YAYINLAR & BİLDİRİLER</span>
+        <h2>Akademik çalışmalarım ve yayın süreçlerim.</h2>
+      </div>
+
+      <div class="publication-list publication-cards">
+        <article class="publication publication-card reveal">
+          <span class="pub-year">2026</span>
+          <div class="pub-content">
+            <div class="pub-meta">
+              <span class="pub-badge">Uluslararası Konferans Bildirisi</span>
+              <span class="pub-status published">Yayımlandı</span>
+            </div>
+
+            <h3>Faz Kontrollü Doğrusal Anten Dizilerindeki Faz Değerlerine Yapılan Yuvarlama İşleminin Sıfırlama Performansı Üzerine Etkileri</h3>
+
+            <p class="pub-alt-title">
+              Effects of Rounding of Phase Values in Phase Controlled Linear Antenna Arrays on Null Steering Performance
+            </p>
+
+            <p class="pub-authors">
+              Filiz Karaömerlioğlu, <strong>Fatih Uyar</strong>, Ali Akdağlı, Ali Yıldız
+            </p>
+
+            <div class="pub-info-grid">
+              <div>
+                <span>Etkinlik</span>
+                <strong>III. International Mediterranean Scientific Studies Conference</strong>
+              </div>
+              <div>
+                <span>Tarih / Yer</span>
+                <strong>13–15 Mart 2026 · Adana, Türkiye</strong>
+              </div>
+              <div>
+                <span>Yayın</span>
+                <strong>Conference Book</strong>
+              </div>
+              <div>
+                <span>Alan</span>
+                <strong>Anten Dizileri · Faz Kuantizasyonu · Null Steering</strong>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="publication publication-card reveal">
+          <span class="pub-year">2026</span>
+          <div class="pub-content">
+            <div class="pub-meta">
+              <span class="pub-badge">Dergi Makalesi</span>
+              <span class="pub-status review">Hakem Değerlendirmesinde</span>
+            </div>
+
+            <h3>Investigation of Quantization Effects on Amplitude-Only Null Steering Performance in Linear Antenna Arrays</h3>
+
+            <p class="pub-alt-title">
+              Genlik kontrollü doğrusal anten dizilerinde kuantizasyon etkilerinin null steering performansı üzerindeki etkilerinin incelenmesi.
+            </p>
+
+            <div class="pub-info-grid">
+              <div>
+                <span>Dergi</span>
+                <strong>International Advanced Researches and Engineering Journal</strong>
+              </div>
+              <div>
+                <span>Durum</span>
+                <strong>In Review</strong>
+              </div>
+              <div>
+                <span>Makale ID</span>
+                <strong>1985042</strong>
+              </div>
+              <div>
+                <span>Alan</span>
+                <strong>Amplitude-Only Null Steering · Quantization · Linear Antenna Arrays</strong>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell" id="skills">
+      <div class="section-heading reveal">
+        <span class="section-index">06 / YETENEKLER</span>
+        <h2>Kullandığım teknoloji ve araçlar.</h2>
+      </div>
+      <div class="skills-wrap reveal">
+        <span>Network Systems</span><span>Switching</span><span>IP Addressing</span><span>Wireless Networks</span><span>PoE</span><span>CCTV / IP Camera</span><span>NVR</span><span>Python</span><span>MATLAB / Simulink</span><span>C / C++</span><span>HTML / CSS</span><span>AutoCAD</span><span>PLC</span><span>ESP32</span><span>RF Measurement</span><span>Power Systems</span><span>MS Office</span>
+      </div>
+    </section>
+
+    <section class="contact section-shell" id="contact">
+      <div class="contact-card reveal">
+        <span class="section-index">07 / İLETİŞİM</span>
+        <h2>Bir proje veya fırsat için konuşalım.</h2>
+        <p>Teknik projeler, iş fırsatları veya akademik çalışmalar için benimle iletişime geçebilirsin.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:uyarfatih5@gmail.com">uyarfatih5@gmail.com ↗</a>
+          <a class="btn btn-secondary" href="https://github.com/fatihuyar" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-shell">
+    <span>© <span id="year"></span> Fatih Uyar</span>
+    <span>Electrical & Electronics Engineer</span>
+    <a href="#top">Yukarı ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
