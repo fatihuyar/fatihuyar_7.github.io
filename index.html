@@ -1,5668 +1,3170 @@
-
-Daha eski mesajlar yükleniyor…
-komple ver html dosyasını
-Aşağıdaki sürümde CCNA PDF bölümü eklenmiş, makale Kabul Edildi / Accepted olarak güncellenmiş ve mevcut site yapısı korunmuştur. PDF'yi GitHub reposunda documents/CCNA-Turkce-v2.pdf yoluna koyman yeterli. PDF içeriği CCNA 200-301 v1.1 odağında IPv4/IPv6, switching, routing, güvenlik, kablosuz ağlar, otomasyon ve uygulamalı laboratuvarları kapsıyor. 
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta
-    name="description"
-    content="Fatih Uyar | Elektrik-Elektronik Mühendisi. Ağ sistemleri, RF/anten, CCTV, IP kamera ve teknik saha operasyonları üzerine çalışan kişisel portföy sitesi."
-  />
-
-  <meta name="theme-color" content="#07111f" />
-
-  <title>Fatih Uyar | Elektrik-Elektronik Mühendisi</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="style.css" />
-
-  <style>
-
-    /* =========================
-       YAYIN KARTLARI
-    ========================== */
-
-    .publication-cards {
-      display: grid;
-      gap: 18px;
-      border-top: 0 !important;
-    }
-
-    .publication-card {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 28px;
-      padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.025)
-        );
-      transition: .3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .publication-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(112,225,245,.28);
-    }
-
-    .publication-card::after {
-      content: "";
-      position: absolute;
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      background: rgba(112,225,245,.06);
-      filter: blur(26px);
-      right: -80px;
-      bottom: -110px;
-      pointer-events: none;
-    }
-
-    .publication-card .pub-year {
-      font:
-        800 14px
-        "Space Grotesk",
-        sans-serif;
-      color: var(--accent);
-      letter-spacing: .05em;
-      padding-top: 5px;
-    }
-
-    .pub-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .pub-meta {
-      display: flex;
-      gap: 9px;
-      flex-wrap: wrap;
-      margin-bottom: 15px;
-    }
-
-    .pub-badge,
-    .pub-status {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 11px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .04em;
-      border: 1px solid var(--line);
-    }
-
-    .pub-badge {
-      color: var(--accent);
-      background: rgba(112,225,245,.06);
-    }
-
-    .pub-status.published {
-      color: #72f2b3;
-      background: rgba(114,242,179,.07);
-      border-color: rgba(114,242,179,.2);
-    }
-
-    .pub-status.accepted {
-      color: #72f2b3;
-      background: rgba(114,242,179,.07);
-      border-color: rgba(114,242,179,.2);
-    }
-
-    .publication-card h3 {
-      font-size: 24px;
-      line-height: 1.25;
-      margin: 0 0 9px;
-      max-width: 980px;
-    }
-
-    .pub-alt-title {
-      color: #aebdce !important;
-      font-style: italic;
-      margin: 0 0 13px !important;
-      max-width: 980px;
-    }
-
-    .pub-authors {
-      color: #dce6f2 !important;
-      margin: 0 0 18px !important;
-    }
-
-    .pub-info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .pub-info-grid > div {
-      padding: 14px 15px;
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      background: rgba(255,255,255,.025);
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .pub-info-grid span {
-      color: var(--muted);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-weight: 700;
-    }
-
-    .pub-info-grid strong {
-      color: #e9f0f9;
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-
-    /* =========================
-       HERO ETİKETLERİ
-    ========================== */
-
-    .chip-d {
-      top: 6%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-
-    /* =========================
-       CCNA KAYNAĞI
-    ========================== */
-
-    .ccna-card {
-      display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 40px;
-      padding: 38px;
-
-      border: 1px solid var(--line);
-      border-radius: 28px;
-
-      background:
-        radial-gradient(
-          circle at 10% 20%,
-          rgba(112,225,245,.12),
-          transparent 30%
-        ),
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.06),
-          rgba(255,255,255,.025)
-        );
-
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ccna-card::after {
-      content: "";
-      position: absolute;
-
-      width: 260px;
-      height: 260px;
-
-      right: -120px;
-      bottom: -140px;
-
-      border-radius: 50%;
+    <meta charset="UTF-8">
 
-      background:
-        rgba(138,125,255,.10);
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-      filter: blur(35px);
-    }
-
-    .ccna-icon {
-      min-height: 220px;
+    <meta
+        name="description"
+        content="Fatih Uyar | Elektrik-Elektronik Mühendisi. Ağ sistemleri, RF, anten sistemleri, CCTV, IP kamera ve teknik saha operasyonları."
+    >
 
-      display: flex;
-      flex-direction: column;
+    <meta
+        name="theme-color"
+        content="#07111f"
+    >
 
-      align-items: center;
-      justify-content: center;
+    <title>
+        Fatih Uyar | Elektrik-Elektronik Mühendisi
+    </title>
 
-      border-radius: 24px;
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
-      border:
-        1px solid rgba(112,225,245,.2);
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-      background:
-        linear-gradient(
-          145deg,
-          rgba(112,225,245,.13),
-          rgba(138,125,255,.08)
-        );
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-      position: relative;
-      z-index: 1;
-    }
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-    .ccna-icon span {
-      font-family:
-        "Space Grotesk",
-        sans-serif;
 
-      font-size: 38px;
-      font-weight: 800;
+    <style>
 
-      letter-spacing: -.04em;
+        /* ==================================================
+           EK TASARIM AYARLARI
+        ================================================== */
 
-      background:
-        linear-gradient(
-          100deg,
-          var(--accent),
-          #b0a7ff
-        );
+        .hero-visual {
+            position: relative;
+        }
 
-      -webkit-background-clip: text;
-      background-clip: text;
 
-      color: transparent;
-    }
+        /* ==================================================
+           HERO ÜST ETİKETLER
+        ================================================== */
 
-    .ccna-icon strong {
-      margin-top: 4px;
+        .chip-networks {
+            top: 18%;
+            left: 2%;
+        }
 
-      color: var(--muted);
+        .chip-rf {
+            right: 0;
+            bottom: 28%;
+        }
 
-      font-size: 14px;
+        .chip-esp {
+            left: 8%;
+            bottom: 7%;
+        }
 
-      letter-spacing: .12em;
-    }
+        .chip-cctv {
+            top: 4%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
 
-    .ccna-content {
-      position: relative;
-      z-index: 1;
-    }
 
-    .ccna-meta {
-      display: flex;
-      flex-wrap: wrap;
+        /* ==================================================
+           CCNA BÖLÜMÜ
+        ================================================== */
 
-      gap: 8px;
+        .ccna-card {
 
-      margin-bottom: 17px;
-    }
+            display: grid;
 
-    .ccna-badge {
-      padding: 7px 11px;
+            grid-template-columns:
+                minmax(190px, 240px)
+                1fr;
 
-      border-radius: 999px;
+            gap: 42px;
 
-      border: 1px solid var(--line);
+            align-items: center;
 
-      background:
-        rgba(255,255,255,.035);
+            padding: 38px;
 
-      color: var(--accent);
+            border:
+                1px solid var(--line);
 
-      font-size: 11px;
+            border-radius: 28px;
 
-      font-weight: 750;
+            background:
 
-      text-transform: uppercase;
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(112, 225, 245, .12),
+                    transparent 32%
+                ),
 
-      letter-spacing: .07em;
-    }
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.06),
+                    rgba(255,255,255,.025)
+                );
 
-    .ccna-content h3 {
-      margin-bottom: 14px;
+            position: relative;
 
-      font-size:
-        clamp(28px, 3vw, 38px);
-    }
+            overflow: hidden;
+        }
 
-    .ccna-content > p {
-      max-width: 800px;
 
-      color: var(--muted);
-    }
+        .ccna-card::after {
 
-    .ccna-topics {
-      display: flex;
-      flex-wrap: wrap;
+            content: "";
 
-      gap: 8px;
+            position: absolute;
 
-      margin-top: 24px;
-    }
+            width: 300px;
+            height: 300px;
 
-    .ccna-topics span {
-      padding: 7px 11px;
+            right: -150px;
+            bottom: -170px;
 
-      border-radius: 999px;
+            border-radius: 50%;
 
-      border: 1px solid var(--line);
+            background:
+                rgba(138, 125, 255, .11);
 
-      background:
-        rgba(255,255,255,.03);
+            filter:
+                blur(40px);
 
-      color: #d7e1ec;
+            pointer-events: none;
+        }
 
-      font-size: 12px;
-    }
 
-    .ccna-actions {
-      display: flex;
-      flex-wrap: wrap;
+        .ccna-cover {
 
-      gap: 12px;
+            position: relative;
 
-      margin-top: 28px;
-    }
+            z-index: 2;
 
-    .ccna-note {
-      margin-top: 20px !important;
+            display: flex;
 
-      font-size: 12px !important;
+            justify-content: center;
 
-      color: #77889d !important;
-    }
+            align-items: center;
+        }
 
 
-    /* =========================
-       RESPONSIVE
-    ========================== */
+        .ccna-cover img {
 
-    @media (max-width:700px) {
+            display: block;
 
-      .publication-card {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 22px;
-      }
+            width: 100%;
 
-      .pub-info-grid {
-        grid-template-columns: 1fr;
-      }
+            max-width: 220px;
 
-      .publication-card h3 {
-        font-size: 21px;
-      }
+            height: auto;
 
-      .chip-d {
-        top: 2%;
-        left: 50%;
-        transform: translateX(-50%);
-      }
+            border-radius: 16px;
 
-      .ccna-card {
-        grid-template-columns: 1fr;
+            border:
+                1px solid rgba(255,255,255,.12);
 
-        padding: 24px;
+            box-shadow:
+                0 24px 55px rgba(0,0,0,.42);
 
-        gap: 25px;
-      }
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
 
-      .ccna-icon {
-        min-height: 150px;
-      }
 
-      .ccna-actions {
-        flex-direction: column;
-      }
+        .ccna-cover img:hover {
 
-      .ccna-actions .btn {
-        width: 100%;
-      }
+            transform:
+                translateY(-5px);
 
-    }
+            box-shadow:
+                0 30px 70px rgba(0,0,0,.5);
+        }
 
-  </style>
+
+        .ccna-content {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .ccna-meta {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-bottom: 16px;
+        }
+
+
+        .ccna-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            padding:
+                7px 11px;
+
+            border-radius:
+                999px;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                rgba(112,225,245,.055);
+
+            color:
+                var(--accent);
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .06em;
+        }
+
+
+        .ccna-content h3 {
+
+            margin:
+                0 0 14px;
+
+            font-size:
+                clamp(
+                    27px,
+                    3vw,
+                    38px
+                );
+
+            line-height:
+                1.15;
+        }
+
+
+        .ccna-description {
+
+            max-width:
+                790px;
+
+            color:
+                var(--muted);
+
+            margin:
+                0;
+
+            font-size:
+                16px;
+
+            line-height:
+                1.75;
+        }
+
+
+        .ccna-topics {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top:
+                24px;
+        }
+
+
+        .ccna-topics span {
+
+            padding:
+                7px 11px;
+
+            border-radius:
+                999px;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                rgba(255,255,255,.03);
+
+            color:
+                #d7e1ec;
+
+            font-size:
+                12px;
+        }
+
+
+        .ccna-actions {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top:
+                28px;
+        }
+
+
+        .ccna-note {
+
+            margin-top:
+                20px;
+
+            margin-bottom:
+                0;
+
+            color:
+                #77889d;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.65;
+        }
+
+
+
+        /* ==================================================
+           YAYINLAR
+        ================================================== */
+
+        .publication-cards {
+
+            display:
+                grid;
+
+            gap:
+                18px;
+        }
+
+
+        .publication-card {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                80px
+                minmax(0, 1fr);
+
+            gap:
+                28px;
+
+            padding:
+                30px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                24px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.055),
+                    rgba(255,255,255,.025)
+                );
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            transition:
+                .3s ease;
+        }
+
+
+        .publication-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(112,225,245,.3);
+        }
+
+
+        .publication-card::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                200px;
+
+            height:
+                200px;
+
+            right:
+                -100px;
+
+            bottom:
+                -120px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(112,225,245,.07);
+
+            filter:
+                blur(30px);
+
+            pointer-events:
+                none;
+        }
+
+
+        .pub-year {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            color:
+                var(--accent);
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-weight:
+                800;
+
+            font-size:
+                14px;
+        }
+
+
+        .pub-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            min-width:
+                0;
+        }
+
+
+        .pub-meta {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                8px;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .pub-badge,
+        .pub-status {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            padding:
+                7px 11px;
+
+            border-radius:
+                999px;
+
+            border:
+                1px solid var(--line);
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+        }
+
+
+        .pub-badge {
+
+            color:
+                var(--accent);
+
+            background:
+                rgba(112,225,245,.055);
+        }
+
+
+        .pub-status.published,
+        .pub-status.accepted {
+
+            color:
+                #72f2b3;
+
+            background:
+                rgba(114,242,179,.075);
+
+            border-color:
+                rgba(114,242,179,.22);
+        }
+
+
+        .publication-card h3 {
+
+            margin:
+                0 0 10px;
+
+            font-size:
+                23px;
+
+            line-height:
+                1.35;
+        }
+
+
+        .pub-alt-title {
+
+            color:
+                #aebdce;
+
+            font-style:
+                italic;
+
+            line-height:
+                1.65;
+
+            margin:
+                0 0 16px;
+        }
+
+
+        .pub-authors {
+
+            color:
+                #dce6f2;
+
+            margin:
+                0 0 18px;
+
+            line-height:
+                1.7;
+        }
+
+
+        .pub-info-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap:
+                10px;
+
+            margin-top:
+                18px;
+        }
+
+
+        .pub-info-grid > div {
+
+            padding:
+                14px 15px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                15px;
+
+            background:
+                rgba(255,255,255,.025);
+        }
+
+
+        .pub-info-grid span {
+
+            display:
+                block;
+
+            margin-bottom:
+                3px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .1em;
+
+            font-weight:
+                700;
+        }
+
+
+        .pub-info-grid strong {
+
+            color:
+                #e9f0f9;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.45;
+        }
+
+
+
+        /* ==================================================
+           MOBİL
+        ================================================== */
+
+        @media (max-width: 900px) {
+
+            .chip-cctv {
+
+                top:
+                    0;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .ccna-card {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    28px;
+
+                padding:
+                    24px;
+            }
+
+
+            .ccna-cover img {
+
+                max-width:
+                    185px;
+            }
+
+
+            .ccna-content {
+
+                text-align:
+                    left;
+            }
+
+
+            .ccna-actions {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .ccna-actions .btn {
+
+                width:
+                    100%;
+            }
+
+
+            .publication-card {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    8px;
+
+                padding:
+                    22px;
+            }
+
+
+            .pub-info-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .publication-card h3 {
+
+                font-size:
+                    20px;
+            }
+
+
+            .chip-cctv {
+
+                top:
+                    -3%;
+
+                font-size:
+                    11px;
+            }
+
+
+            .chip-networks {
+
+                top:
+                    17%;
+
+                left:
+                    0;
+            }
+
+
+            .chip-rf {
+
+                right:
+                    0;
+
+                bottom:
+                    27%;
+            }
+
+
+            .chip-esp {
+
+                left:
+                    5%;
+
+                bottom:
+                    5%;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
+
 <body>
 
-  <div class="page-grid"></div>
+
+<div class="page-grid"></div>
 
 
-  <!-- =========================
-       HEADER
-  ========================== -->
 
-  <header class="site-header" id="top">
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header
+    class="site-header"
+    id="top"
+>
+
 
     <a
-      class="brand"
-      href="#top"
-      aria-label="Ana sayfa"
+        class="brand"
+        href="#top"
+        aria-label="Ana sayfa"
     >
 
-      <span class="brand-mark">
-        FU
-      </span>
+        <span class="brand-mark">
+            FU
+        </span>
 
-      <span>
-        Fatih Uyar
-      </span>
+        <span>
+            Fatih Uyar
+        </span>
 
     </a>
 
 
+
     <button
-      class="menu-btn"
-      aria-label="Menüyü aç/kapat"
-      aria-expanded="false"
+        class="menu-btn"
+        aria-label="Menüyü aç veya kapat"
+        aria-expanded="false"
     >
-      ☰
+        ☰
     </button>
 
 
+
     <nav
-      class="nav"
-      aria-label="Ana navigasyon"
+        class="nav"
+        aria-label="Ana navigasyon"
     >
 
-      <a href="#about">
-        Hakkımda
-      </a>
+        <a href="#about">
+            Hakkımda
+        </a>
 
-      <a href="#experience">
-        Deneyim
-      </a>
+        <a href="#experience">
+            Deneyim
+        </a>
 
-      <a href="#network">
-        Ağ
-      </a>
+        <a href="#network">
+            Ağ
+        </a>
 
-      <a href="#ccna">
-        CCNA
-      </a>
+        <a href="#ccna">
+            CCNA
+        </a>
 
-      <a href="#projects">
-        Projeler
-      </a>
+        <a href="#projects">
+            Projeler
+        </a>
 
-      <a href="#publications">
-        Yayınlar
-      </a>
+        <a href="#publications">
+            Yayınlar
+        </a>
 
-      <a href="#skills">
-        Yetenekler
-      </a>
+        <a href="#skills">
+            Yetenekler
+        </a>
 
-      <a
-        class="nav-cta"
-        href="#contact"
-      >
-        İletişim
-      </a>
+        <a
+            class="nav-cta"
+            href="#contact"
+        >
+            İletişim
+        </a>
 
     </nav>
 
-  </header>
+
+</header>
 
 
-  <main>
 
 
-    <!-- =========================
-         HERO
-    ========================== -->
-
-    <section class="hero section-shell">
+<main>
 
 
-      <div class="hero-copy reveal">
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section
+    class="hero section-shell"
+>
+
+
+    <div
+        class="hero-copy reveal"
+    >
+
 
         <div class="eyebrow">
 
-          <span class="pulse"></span>
+            <span class="pulse"></span>
 
-          Elektrik-Elektronik Mühendisi
+            Elektrik-Elektronik Mühendisi
 
         </div>
+
 
 
         <h1>
 
-          Teknolojiyi
+            Teknolojiyi
 
-          <span class="gradient-text">
-            sahada çalışan
-          </span>
+            <span class="gradient-text">
+                sahada çalışan
+            </span>
 
-          çözümlere dönüştürüyorum.
+            çözümlere dönüştürüyorum.
 
         </h1>
 
 
+
         <p class="hero-text">
 
-          Ağ sistemleri, RF/anten, CCTV, IP kamera ve teknik saha
-          operasyonlarında deneyim sahibi; araştırma ile uygulamayı
-          bir araya getiren Elektrik-Elektronik Mühendisiyim.
+            Ağ sistemleri, RF/anten, CCTV, IP kamera ve teknik
+            saha operasyonlarında deneyim sahibi; araştırma ile
+            uygulamayı bir araya getiren Elektrik-Elektronik
+            Mühendisiyim.
 
         </p>
 
 
+
         <div class="hero-actions">
 
-          <a
-            class="btn btn-primary"
-            href="#projects"
-          >
 
-            Projelerimi İncele
+            <a
+                class="btn btn-primary"
+                href="#projects"
+            >
 
-            <span>↘</span>
+                Projelerimi İncele
 
-          </a>
+                <span>
+                    ↘
+                </span>
+
+            </a>
 
 
-          <a
-            class="btn btn-secondary"
-            href="mailto:uyarfatih5@gmail.com"
-          >
 
-            Bana Ulaş
+            <a
+                class="btn btn-secondary"
+                href="mailto:uyarfatih5@gmail.com"
+            >
 
-          </a>
+                Bana Ulaş
+
+            </a>
+
 
         </div>
+
 
 
         <div class="hero-metrics">
 
-          <div>
 
-            <strong>NET</strong>
+            <div>
 
-            <span>
-              Ağ & Sistem
-            </span>
+                <strong>
+                    NET
+                </strong>
 
-          </div>
+                <span>
+                    Ağ & Sistem
+                </span>
+
+            </div>
 
 
-          <div>
 
-            <strong>RF</strong>
+            <div>
 
-            <span>
-              Anten Sistemleri
-            </span>
+                <strong>
+                    RF
+                </strong>
 
-          </div>
+                <span>
+                    Anten Sistemleri
+                </span>
+
+            </div>
+
 
         </div>
 
-      </div>
+
+    </div>
 
 
 
-      <div class="hero-visual reveal delay-1">
+
+    <div
+        class="hero-visual reveal delay-1"
+    >
+
 
         <div class="orbit orbit-one"></div>
 
         <div class="orbit orbit-two"></div>
 
 
+
         <div class="portrait-card">
 
-          <div class="portrait-frame">
 
-            <img
-              src="assets/profil.jpg"
-              alt="Fatih Uyar profil fotoğrafı"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"
-            />
-
-            <div class="portrait-fallback">
-              FU
-            </div>
-
-          </div>
+            <div class="portrait-frame">
 
 
-          <div class="portrait-label">
+                <img
+                    src="assets/profil.jpg"
+                    alt="Fatih Uyar profil fotoğrafı"
+                >
 
-            <span class="status-dot"></span>
 
-            <div>
+                <div class="portrait-fallback">
+                    FU
+                </div>
 
-              <strong>
-                Fatih Uyar
-              </strong>
-
-              <small>
-                Konya, Turkey
-              </small>
 
             </div>
 
-          </div>
+
+
+            <div class="portrait-label">
+
+
+                <span class="status-dot"></span>
+
+
+                <div>
+
+                    <strong>
+                        Fatih Uyar
+                    </strong>
+
+                    <small>
+                        Konya, Turkey
+                    </small>
+
+                </div>
+
+
+            </div>
+
 
         </div>
 
 
-        <div class="floating-chip chip-a">
-          Networks
+
+        <div
+            class="floating-chip chip-networks"
+        >
+            Networks
         </div>
 
-        <div class="floating-chip chip-b">
-          RF Systems
+
+        <div
+            class="floating-chip chip-rf"
+        >
+            RF Systems
         </div>
 
-        <div class="floating-chip chip-c">
-          ESP32
+
+        <div
+            class="floating-chip chip-esp"
+        >
+            ESP32
         </div>
 
-        <div class="floating-chip chip-d">
-          CCTV / IP Kamera
+
+        <div
+            class="floating-chip chip-cctv"
+        >
+            CCTV / IP Kamera
         </div>
 
-      </div>
+
+    </div>
 
 
-    </section>
-
-
-
-    <!-- =========================
-         MARQUEE
-    ========================== -->
-
-    <section
-      class="marquee"
-      aria-label="Uzmanlık alanları"
-    >
-
-      <div class="marquee-track">
-
-        <span>Elektrik-Elektronik</span>
-
-        <i>✦</i>
-
-        <span>Ağ Sistemleri</span>
-
-        <i>✦</i>
-
-        <span>Switch & Router</span>
-
-        <i>✦</i>
-
-        <span>RF & Anten</span>
-
-        <i>✦</i>
-
-        <span>CCTV / IP Kamera</span>
-
-        <i>✦</i>
-
-        <span>CCNA</span>
-
-        <i>✦</i>
-
-        <span>ESP32</span>
-
-        <i>✦</i>
-
-        <span>MATLAB</span>
-
-        <i>✦</i>
-
-        <span>Python</span>
-
-        <i>✦</i>
-
-      </div>
-
-    </section>
+</section>
 
 
 
-    <!-- =========================
-         HAKKIMDA
-    ========================== -->
 
-    <section
-      class="section-shell two-col"
-      id="about"
-    >
+<!-- ==================================================
+     KAYAN YAZI
+================================================== -->
 
-      <div class="section-heading reveal">
+<section
+    class="marquee"
+    aria-label="Uzmanlık alanları"
+>
 
-        <span class="section-index">
-          01 / HAKKIMDA
+
+    <div class="marquee-track">
+
+
+        <span>
+            Elektrik-Elektronik
         </span>
 
+        <i>✦</i>
+
+
+        <span>
+            Ağ Sistemleri
+        </span>
+
+        <i>✦</i>
+
+
+        <span>
+            Switch & Router
+        </span>
+
+        <i>✦</i>
+
+
+        <span>
+            RF & Anten
+        </span>
+
+        <i>✦</i>
+
+
+        <span>
+            CCTV / IP Kamera
+        </span>
+
+        <i>✦</i>
+
+
+        <span>
+            CCNA
+        </span>
+
+        <i>✦</i>
+
+
+        <span>
+            ESP32
+        </span>
+
+        <i>✦</i>
+
+
+        <span>
+            MATLAB
+        </span>
+
+        <i>✦</i>
+
+
+        <span>
+            Python
+        </span>
+
+        <i>✦</i>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+<!-- ==================================================
+     HAKKIMDA
+================================================== -->
+
+<section
+    class="section-shell two-col"
+    id="about"
+>
+
+
+    <div class="section-heading reveal">
+
+
+        <span class="section-index">
+
+            01 / HAKKIMDA
+
+        </span>
+
+
         <h2>
-          Mühendislik, araştırma ve saha deneyimi.
+
+            Mühendislik, araştırma ve saha deneyimi.
+
         </h2>
 
-      </div>
+
+    </div>
 
 
-      <div class="about-copy reveal delay-1">
 
-        <p>
-
-          Mersin Üniversitesi Elektrik-Elektronik Mühendisliği mezunuyum.
-          Üniversite, staj ve saha çalışmalarım boyunca ağ altyapıları,
-          CCTV sistemleri, RF ölçümleri, anten uygulamaları ve teknik
-          operasyonlar üzerine çalıştım.
-
-        </p>
+    <div
+        class="about-copy reveal delay-1"
+    >
 
 
         <p>
 
-          Teknik problemleri yalnızca teorik olarak değil; devreye alma,
-          arıza analizi, konfigürasyon, veri işleme, yazılım geliştirme
-          ve performans değerlendirmesi gibi uçtan uca süreçlerle ele
-          almayı seviyorum.
+            Mersin Üniversitesi Elektrik-Elektronik Mühendisliği
+            mezunuyum. Üniversite, staj ve saha çalışmalarım
+            boyunca ağ altyapıları, CCTV sistemleri, RF ölçümleri,
+            anten uygulamaları ve teknik operasyonlar üzerine
+            çalıştım.
 
         </p>
+
+
+
+        <p>
+
+            Teknik problemleri yalnızca teorik olarak değil;
+            devreye alma, arıza analizi, konfigürasyon,
+            veri işleme, yazılım geliştirme ve performans
+            değerlendirmesi gibi uçtan uca süreçlerle ele
+            almayı seviyorum.
+
+        </p>
+
 
 
         <div class="mini-cards">
 
-          <div class="mini-card">
 
-            <span>
-              Odak
-            </span>
+            <div class="mini-card">
 
-            <strong>
-              Network + RF + IT
-            </strong>
+                <span>
+                    Odak
+                </span>
 
-          </div>
+                <strong>
+                    Network + RF + IT
+                </strong>
+
+            </div>
 
 
-          <div class="mini-card">
 
-            <span>
-              Yaklaşım
-            </span>
+            <div class="mini-card">
 
-            <strong>
-              Analitik & Uygulamalı
-            </strong>
+                <span>
+                    Yaklaşım
+                </span>
 
-          </div>
+                <strong>
+                    Analitik & Uygulamalı
+                </strong>
+
+            </div>
+
 
         </div>
 
-      </div>
 
-    </section>
-
+    </div>
 
 
-    <!-- =========================
-         DENEYİM
-    ========================== -->
+</section>
 
-    <section
-      class="section-shell"
-      id="experience"
-    >
 
-      <div class="section-heading reveal">
+
+
+<!-- ==================================================
+     DENEYİM
+================================================== -->
+
+<section
+    class="section-shell"
+    id="experience"
+>
+
+
+    <div class="section-heading reveal">
+
 
         <span class="section-index">
-          02 / DENEYİM
+
+            02 / DENEYİM
+
         </span>
 
+
         <h2>
-          Sahada öğrendim, projelerde geliştirdim.
+
+            Sahada öğrendim, projelerde geliştirdim.
+
         </h2>
 
-      </div>
+
+    </div>
 
 
-      <div class="timeline">
+
+    <div class="timeline">
+
 
 
         <!-- ÖZATEŞ -->
 
+
         <article class="timeline-item reveal">
 
-          <div class="timeline-date">
-            2026–
-          </div>
+
+            <div class="timeline-date">
+
+                2026–
+
+            </div>
 
 
-          <div class="timeline-body">
+            <div class="timeline-body">
 
-            <h3>
-              Özateş İleri Teknoloji
-            </h3>
 
-            <p class="role">
-              KGYS Personeli / Teknik Saha
-            </p>
+                <h3>
 
-            <p>
+                    Özateş İleri Teknoloji
 
-              KGYS kapsamında kamera ve saha ekipmanlarının bakım ve
-              onarım işlemleri, saha kabinlerinin temizliği, UPS bakım
-              ve kontrolleri, kamera temizliği ve GEKO sistemlerine
-              uzaktan erişim sağlayarak arıza tespit ve giderme
-              çalışmalarında görev alıyorum.
+                </h3>
 
-            </p>
 
-          </div>
+                <p class="role">
+
+                    KGYS Personeli / Teknik Saha
+
+                </p>
+
+
+                <p>
+
+                    KGYS kapsamında kamera ve saha ekipmanlarının
+                    bakım ve onarım işlemleri, saha kabinlerinin
+                    kontrolü, UPS bakım ve kontrolleri, kamera
+                    temizliği ve GEKO sistemlerine uzaktan erişim
+                    sağlayarak arıza tespit ve giderme
+                    çalışmalarında görev alıyorum.
+
+                </p>
+
+
+            </div>
+
 
         </article>
+
 
 
 
         <!-- RDT -->
 
+
         <article class="timeline-item reveal">
 
-          <div class="timeline-date">
-            2022–2026
-          </div>
+
+            <div class="timeline-date">
+
+                2022–
+
+            </div>
 
 
-          <div class="timeline-body">
+            <div class="timeline-body">
 
-            <h3>
-              RDT Teknoloji
-            </h3>
 
-            <p class="role">
-              Elektrik-Elektronik / Saha
-            </p>
+                <h3>
 
-            <p>
+                    RDT Teknoloji
 
-              EDS, altyapı, CCTV, IP kamera devreye alma, NVR
-              bağlantıları, teknik çizim ve saha uygulamalarında görev.
+                </h3>
 
-            </p>
 
-          </div>
+                <p class="role">
+
+                    Elektrik-Elektronik / Saha
+
+                </p>
+
+
+                <p>
+
+                    EDS, altyapı, CCTV, IP kamera devreye alma,
+                    NVR bağlantıları, teknik çizim ve saha
+                    uygulamalarında görev.
+
+                </p>
+
+
+            </div>
+
 
         </article>
+
 
 
 
         <!-- BTK -->
 
+
         <article class="timeline-item reveal">
 
-          <div class="timeline-date">
-            2025
-          </div>
+
+            <div class="timeline-date">
+
+                2025
+
+            </div>
 
 
-          <div class="timeline-body">
+            <div class="timeline-body">
 
-            <h3>
-              Bilgi Teknolojileri ve İletişim Kurumu
-            </h3>
 
-            <p class="role">
-              Stajyer
-            </p>
+                <h3>
 
-            <p>
+                    Bilgi Teknolojileri ve İletişim Kurumu
 
-              Spektrum izleme, RF ölçümleri, yönlü antenler, baz
-              istasyonu sertifikasyon süreçleri, radyo linkler ve
-              saha denetimleri üzerine deneyim.
+                </h3>
 
-            </p>
 
-          </div>
+                <p class="role">
+
+                    Stajyer
+
+                </p>
+
+
+                <p>
+
+                    Spektrum izleme, RF ölçümleri, yönlü antenler,
+                    baz istasyonu sertifikasyon süreçleri,
+                    radyo linkler ve saha denetimleri üzerine
+                    deneyim.
+
+                </p>
+
+
+            </div>
+
 
         </article>
+
 
 
 
         <!-- MERSİN ÜNİVERSİTESİ -->
 
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2024–2025
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              Mersin Üniversitesi Bilgi İşlem Daire Başkanlığı
-            </h3>
-
-            <p class="role">
-              Ağ Hizmetleri
-            </p>
-
-            <p>
-
-              Kampüs ağ altyapısı, switch ve sistem operasyonları,
-              temel ağ izleme, IP tabanlı yapıların takibi ve teknik
-              destek süreçlerinde uygulamalı çalışma.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
 
         <article class="timeline-item reveal">
 
-          <div class="timeline-date">
-            2025–2026
-          </div>
 
+            <div class="timeline-date">
 
-          <div class="timeline-body">
-
-            <h3>
-              Mersin Üniversitesi Bilgi İşlem Daire Başkanlığı
-            </h3>
-
-            <p class="role">
-              Ağ Hizmetleri
-            </p>
-
-            <p>
-
-              Kampüs ağ altyapısı, switch ve sistem operasyonları,
-              temel ağ izleme, IP tabanlı yapıların takibi ve teknik
-              destek süreçlerinde uygulamalı çalışma.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         AĞ ODAĞI
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="network"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          03 / AĞ ODAĞI
-        </span>
-
-        <h2>
-          Ağ altyapısı ve saha operasyonları.
-        </h2>
-
-      </div>
-
-
-      <div class="project-grid network-grid">
-
-
-        <article class="project-card featured reveal">
-
-          <div class="project-number">
-            01
-          </div>
-
-          <div class="project-tag">
-            Ağ Altyapısı
-          </div>
-
-          <h3>
-            Kampüs Ağ Operasyonları
-          </h3>
-
-          <p>
-
-            Switch tabanlı altyapıların takibi, bağlantı sorunlarının
-            analizi, ağ topolojisinin anlaşılması ve saha destek
-            süreçlerinde aktif rol aldım.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>Switching</span>
-
-            <span>IP Addressing</span>
-
-            <span>Troubleshooting</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            02
-          </div>
-
-          <div class="project-tag">
-            CCTV & Güvenlik
-          </div>
-
-          <h3>
-            IP Kamera ve NVR Ağ Entegrasyonu
-          </h3>
-
-          <p>
-
-            PoE destekli kamera ağları, IP kamera devreye alma,
-            kayıt altyapısı ve bağlantı/test süreçlerinde saha
-            tecrübesi.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>CCTV</span>
-
-            <span>PoE</span>
-
-            <span>NVR</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal">
-
-          <div class="project-number">
-            03
-          </div>
-
-          <div class="project-tag">
-            Kablosuz Bağlantı
-          </div>
-
-          <h3>
-            Kablosuz Ağ ve WISP Kurulumları
-          </h3>
-
-          <p>
-
-            Kablosuz erişim, repeater/WISP senaryoları, temel erişim
-            noktası yapılandırmaları ve bağlantı optimizasyonu
-            üzerine çalışma.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>Access Point</span>
-
-            <span>WISP</span>
-
-            <span>Wireless</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            04
-          </div>
-
-          <div class="project-tag">
-            Sistem Yönetimi
-          </div>
-
-          <h3>
-            Ağ Destek ve Arıza Analizi
-          </h3>
-
-          <p>
-
-            Bağlantı kesintileri, cihaz erişimi, IP yapılandırması,
-            saha kontrolleri ve temel servis sürekliliği
-            problemlerine çözüm üretme deneyimi.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>SSH</span>
-
-            <span>Network Support</span>
-
-            <span>Diagnostics</span>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CCNA ÇALIŞMALARI
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="ccna"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          04 / CCNA ÇALIŞMALARI
-        </span>
-
-        <h2>
-          Ağ teknolojileri üzerine çalışma kaynağım.
-        </h2>
-
-      </div>
-
-
-      <div class="ccna-card reveal">
-
-        <div class="ccna-icon">
-
-          <span>
-            CCNA
-          </span>
-
-          <strong>
-            200-301
-          </strong>
-
-        </div>
-
-
-        <div class="ccna-content">
-
-          <div class="ccna-meta">
-
-            <span class="ccna-badge">
-              Türkçe
-            </span>
-
-            <span class="ccna-badge">
-              Network
-            </span>
-
-            <span class="ccna-badge">
-              CCNA 200-301 v1.1
-            </span>
-
-          </div>
-
-
-          <h3>
-            Sıfırdan CCNA Türkçe Öğrenme Kitabı
-          </h3>
-
-
-          <p>
-
-            Ağ teknolojilerini sıfırdan öğrenmek ve CCNA konularını
-            Türkçe olarak çalışmak için hazırlanan kapsamlı çalışma
-            kaynağı. Temel ağ kavramlarından başlayarak IPv4 ve IPv6,
-            switching, routing, güvenlik, kablosuz ağlar, servisler,
-            otomasyon ve uygulamalı laboratuvar konularını içerir.
-
-          </p>
-
-
-          <div class="ccna-topics">
-
-            <span>IPv4</span>
-
-            <span>IPv6</span>
-
-            <span>Subnetting</span>
-
-            <span>VLSM</span>
-
-            <span>Cisco IOS</span>
-
-            <span>VLAN</span>
-
-            <span>Trunk</span>
-
-            <span>STP</span>
-
-            <span>EtherChannel</span>
-
-            <span>Routing</span>
-
-            <span>OSPF</span>
-
-            <span>DHCP</span>
-
-            <span>DNS</span>
-
-            <span>NAT</span>
-
-            <span>ACL</span>
-
-            <span>Wireless</span>
-
-            <span>Network Security</span>
-
-            <span>Automation</span>
-
-            <span>Packet Tracer</span>
-
-            <span>Wireshark</span>
-
-          </div>
-
-
-          <div class="ccna-actions">
-
-            <a
-              class="btn btn-primary"
-              href="documents/CCNA-Turkce-v2.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-
-              PDF'yi Görüntüle ↗
-
-            </a>
-
-
-            <a
-              class="btn btn-secondary"
-              href="documents/CCNA-Turkce-v2.pdf"
-              download
-            >
-
-              PDF'yi İndir ↓
-
-            </a>
-
-          </div>
-
-
-          <p class="ccna-note">
-
-            Bu çalışma resmi bir Cisco yayını değildir.
-            CCNA konularını öğrenme ve uygulama amacıyla kullanılan
-            kişisel bir çalışma kaynağıdır.
-
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         PROJELER
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="projects"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          05 / SEÇİLİ PROJELER
-        </span>
-
-        <h2>
-          Fikirden çalışan sisteme.
-        </h2>
-
-      </div>
-
-
-      <div class="project-grid">
-
-
-        <article class="project-card reveal">
-
-          <div class="project-number">
-            01
-          </div>
-
-          <div class="project-tag">
-            RF · Optimizasyon
-          </div>
-
-          <h3>
-            Anten Dizilerinde Sıfırlama
-          </h3>
-
-          <p>
-
-            Faz/genlik kontrollü doğrusal anten dizilerinde null
-            yönlendirme, kuantizasyon ve optimizasyon performansı
-            üzerine araştırma.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>MATLAB</span>
-
-            <span>Array Processing</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            02
-          </div>
-
-          <div class="project-tag">
-            ESP32 · Kablosuz
-          </div>
-
-          <h3>
-            ESP-NOW Uzaktan Kontrol
-          </h3>
-
-          <p>
-
-            Joystick verisini kablosuz olarak aktaran, servo
-            mekanizmasını yöneten ve CRC tabanlı veri bütünlüğü
-            kullanan ESP32 sistemi.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>ESP32</span>
-
-            <span>C/C++</span>
-
-            <span>ESP-NOW</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal">
-
-          <div class="project-number">
-            03
-          </div>
-
-          <div class="project-tag">
-            Enerji · Tasarım
-          </div>
-
-          <h3>
-            Fotovoltaik Sistem Tasarımı
-          </h3>
-
-          <p>
-
-            Off-grid ve on-grid PV sistemlerinde panel, inverter,
-            string/MPPT, akü ve kablo boyutlandırma çalışmaları.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>PV</span>
-
-            <span>Power Systems</span>
-
-            <span>MATLAB</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            04
-          </div>
-
-          <div class="project-tag">
-            Saha · Otomasyon
-          </div>
-
-          <h3>
-            Drone ile Boya Püskürtme Sistemi
-          </h3>
-
-          <p>
-
-            Yüksek yapılarda boya uygulamasını daha güvenli hale
-            getirmeyi amaçlayan, uzaktan kontrol ve püskürtme
-            mekanizmasını birleştiren bitirme projesi.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>Embedded</span>
-
-            <span>Remote Control</span>
-
-            <span>Design</span>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         YAYINLAR
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="publications"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          06 / YAYINLAR & BİLDİRİLER
-        </span>
-
-        <h2>
-          Akademik çalışmalarım ve yayınlarım.
-        </h2>
-
-      </div>
-
-
-      <div class="publication-list publication-cards">
-
-
-        <!-- KONFERANS BİLDİRİSİ -->
-
-        <article
-          class="publication publication-card reveal"
-        >
-
-          <span class="pub-year">
-            2026
-          </span>
-
-
-          <div class="pub-content">
-
-
-            <div class="pub-meta">
-
-              <span class="pub-badge">
-                Uluslararası Konferans Bildirisi
-              </span>
-
-              <span class="pub-status published">
-                Yayımlandı
-              </span>
+                2024–2026
 
             </div>
 
 
-            <h3>
-
-              Faz Kontrollü Doğrusal Anten Dizilerindeki Faz
-              Değerlerine Yapılan Yuvarlama İşleminin Sıfırlama
-              Performansı Üzerine Etkileri
-
-            </h3>
+            <div class="timeline-body">
 
 
-            <p class="pub-alt-title">
+                <h3>
 
-              Effects of Rounding of Phase Values in Phase Controlled
-              Linear Antenna Arrays on Null Steering Performance
+                    Mersin Üniversitesi
+                    Bilgi İşlem Daire Başkanlığı
 
-            </p>
-
-
-            <p class="pub-authors">
-
-              <strong>
-                Dr. Öğr. Üyesi Filiz Karaömerlioğlu
-              </strong>,
-
-              <strong>
-                Fatih Uyar
-              </strong>,
-
-              <strong>
-                Prof. Dr. Ali Akdağlı
-              </strong>,
-
-              <strong>
-                Doç. Dr. Ali Yıldız
-              </strong>
-
-            </p>
+                </h3>
 
 
-            <div class="pub-info-grid">
+                <p class="role">
+
+                    Ağ Hizmetleri
+
+                </p>
 
 
-              <div>
+                <p>
 
-                <span>
-                  Etkinlik
-                </span>
+                    Kampüs ağ altyapısı, switch ve sistem
+                    operasyonları, temel ağ izleme,
+                    IP tabanlı yapıların takibi ve teknik
+                    destek süreçlerinde uygulamalı çalışma.
 
-                <strong>
-                  III. International Mediterranean Scientific
-                  Studies Conference
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Tarih / Yer
-                </span>
-
-                <strong>
-                  13–15 Mart 2026 · Adana, Türkiye
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Yayın
-                </span>
-
-                <strong>
-                  Conference Book
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Alan
-                </span>
-
-                <strong>
-                  Anten Dizileri · Faz Kuantizasyonu · Null Steering
-                </strong>
-
-              </div>
+                </p>
 
 
             </div>
 
-          </div>
 
         </article>
 
 
+    </div>
 
-        <!-- DERGİ MAKALESİ -->
 
-        <article
-          class="publication publication-card reveal"
-        >
+</section>
 
-          <span class="pub-year">
-            2026
-          </span>
 
 
-          <div class="pub-content">
 
+<!-- ==================================================
+     AĞ ODAĞI
+================================================== -->
 
-            <div class="pub-meta">
-
-              <span class="pub-badge">
-                Dergi Makalesi
-              </span>
-
-              <span class="pub-status accepted">
-                Kabul Edildi
-              </span>
-
-            </div>
-
-
-            <h3>
-
-              Investigation of Quantization Effects on
-              Amplitude-Only Null Steering Performance in
-              Linear Antenna Arrays
-
-            </h3>
-
-
-            <p class="pub-alt-title">
-
-              Genlik kontrollü doğrusal anten dizilerinde kuantizasyon
-              etkilerinin null steering performansı üzerindeki
-              etkilerinin incelenmesi.
-
-            </p>
-
-
-            <div class="pub-info-grid">
-
-
-              <div>
-
-                <span>
-                  Dergi
-                </span>
-
-                <strong>
-                  International Advanced Researches and Engineering Journal
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Durum
-                </span>
-
-                <strong>
-                  Accepted
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Makale ID
-                </span>
-
-                <strong>
-                  1985042
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Alan
-                </span>
-
-                <strong>
-                  Amplitude-Only Null Steering · Quantization ·
-                  Linear Antenna Arrays
-                </strong>
-
-              </div>
-
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         YETENEKLER
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="skills"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          07 / YETENEKLER
-        </span>
-
-        <h2>
-          Kullandığım teknoloji ve araçlar.
-        </h2>
-
-      </div>
-
-
-      <div class="skills-wrap reveal">
-
-        <span>Network Systems</span>
-
-        <span>Switching</span>
-
-        <span>Routing</span>
-
-        <span>IP Addressing</span>
-
-        <span>Subnetting</span>
-
-        <span>VLAN</span>
-
-        <span>Wireless Networks</span>
-
-        <span>PoE</span>
-
-        <span>CCTV / IP Camera</span>
-
-        <span>NVR</span>
-
-        <span>SSH</span>
-
-        <span>Packet Tracer</span>
-
-        <span>Wireshark</span>
-
-        <span>Python</span>
-
-        <span>MATLAB / Simulink</span>
-
-        <span>C / C++</span>
-
-        <span>HTML / CSS</span>
-
-        <span>AutoCAD</span>
-
-        <span>PLC</span>
-
-        <span>ESP32</span>
-
-        <span>RF Measurement</span>
-
-        <span>Power Systems</span>
-
-        <span>MS Office</span>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         İLETİŞİM
-    ========================== -->
-
-    <section
-      class="contact section-shell"
-      id="contact"
-    >
-
-      <div class="contact-card reveal">
-
-
-        <span class="section-index">
-          08 / İLETİŞİM
-        </span>
-
-
-        <h2>
-          Bir proje veya fırsat için konuşalım.
-        </h2>
-
-
-        <p>
-
-          Teknik projeler, iş fırsatları veya akademik çalışmalar
-          için benimle iletişime geçebilirsin.
-
-        </p>
-
-
-        <div class="contact-actions">
-
-
-          <a
-            class="btn btn-primary"
-            href="mailto:uyarfatih5@gmail.com"
-          >
-
-            uyarfatih5@gmail.com ↗
-
-          </a>
-
-
-          <a
-            class="btn btn-secondary"
-            href="https://github.com/fatihuyar"
-            target="_blank"
-            rel="noreferrer"
-          >
-
-            GitHub ↗
-
-          </a>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer class="footer section-shell">
-
-    <span>
-      © <span id="year"></span> Fatih Uyar
-    </span>
-
-    <span>
-      Electrical & Electronics Engineer
-    </span>
-
-    <a href="#top">
-      Yukarı ↑
-    </a>
-
-  </footer>
-
-
-  <script src="script.js"></script>
-
-</body>
-</html>
-PDF'nin kendi açıklamasında da bunun resmi Cisco yayını olmadığı ve kişisel/öğrenme odaklı bir çalışma kaynağı olduğu belirtiliyor; bu nedenle sitedeki notu özellikle korudum. 
-
-direk githubda dostyaların olduğu ekleyecem
-Evet, en kolayı bu. PDF’yi repo köküne direkt atabilirsin. O zaman klasör açmana gerek yok.
-
-GitHub yapın şöyle olur:
-
-index.html
-style.css
-script.js
-CCNA-Turkce-v2.pdf
-assets/
-  profil.jpg
-Bu durumda HTML içindeki PDF linklerini şu şekilde değiştir:
-
-href="CCNA-Turkce-v2.pdf"
-Yani görüntüleme butonu:
-
-<a
-  class="btn btn-primary"
-  href="CCNA-Turkce-v2.pdf"
-  target="_blank"
-  rel="noopener"
+<section
+    class="section-shell"
+    id="network"
 >
-  PDF'yi Görüntüle ↗
-</a>
-İndirme butonu:
 
-<a
-  class="btn btn-secondary"
-  href="CCNA-Turkce-v2.pdf"
-  download
+
+    <div class="section-heading reveal">
+
+
+        <span class="section-index">
+
+            03 / AĞ ODAĞI
+
+        </span>
+
+
+        <h2>
+
+            Ağ altyapısı ve saha operasyonları.
+
+        </h2>
+
+
+    </div>
+
+
+
+    <div
+        class="project-grid network-grid"
+    >
+
+
+
+        <article
+            class="project-card featured reveal"
+        >
+
+
+            <div class="project-number">
+
+                01
+
+            </div>
+
+
+            <div class="project-tag">
+
+                Ağ Altyapısı
+
+            </div>
+
+
+            <h3>
+
+                Kampüs Ağ Operasyonları
+
+            </h3>
+
+
+            <p>
+
+                Switch tabanlı altyapıların takibi,
+                bağlantı sorunlarının analizi,
+                ağ topolojisinin anlaşılması ve
+                saha destek süreçlerinde aktif çalışma.
+
+            </p>
+
+
+            <div class="project-tech">
+
+                <span>
+                    Switching
+                </span>
+
+                <span>
+                    IP Addressing
+                </span>
+
+                <span>
+                    Troubleshooting
+                </span>
+
+            </div>
+
+
+        </article>
+
+
+
+
+        <article
+            class="project-card reveal delay-1"
+        >
+
+
+            <div class="project-number">
+
+                02
+
+            </div>
+
+
+            <div class="project-tag">
+
+                CCTV & Güvenlik
+
+            </div>
+
+
+            <h3>
+
+                IP Kamera ve NVR Ağ Entegrasyonu
+
+            </h3>
+
+
+            <p>
+
+                PoE destekli kamera ağları,
+                IP kamera devreye alma,
+                kayıt altyapısı ve bağlantı/test
+                süreçlerinde saha tecrübesi.
+
+            </p>
+
+
+            <div class="project-tech">
+
+                <span>
+                    CCTV
+                </span>
+
+                <span>
+                    PoE
+                </span>
+
+                <span>
+                    NVR
+                </span>
+
+            </div>
+
+
+        </article>
+
+
+
+
+        <article class="project-card reveal">
+
+
+            <div class="project-number">
+
+                03
+
+            </div>
+
+
+            <div class="project-tag">
+
+                Kablosuz Ağ
+
+            </div>
+
+
+            <h3>
+
+                Kablosuz Ağ ve WISP Kurulumları
+
+            </h3>
+
+
+            <p>
+
+                Kablosuz erişim, repeater/WISP senaryoları,
+                erişim noktası yapılandırmaları ve
+                bağlantı optimizasyonu üzerine çalışma.
+
+            </p>
+
+
+            <div class="project-tech">
+
+                <span>
+                    Access Point
+                </span>
+
+                <span>
+                    WISP
+                </span>
+
+                <span>
+                    Wireless
+                </span>
+
+            </div>
+
+
+        </article>
+
+
+
+
+        <article
+            class="project-card reveal delay-1"
+        >
+
+
+            <div class="project-number">
+
+                04
+
+            </div>
+
+
+            <div class="project-tag">
+
+                Sistem Yönetimi
+
+            </div>
+
+
+            <h3>
+
+                Ağ Destek ve Arıza Analizi
+
+            </h3>
+
+
+            <p>
+
+                Bağlantı kesintileri, cihaz erişimi,
+                IP yapılandırması, saha kontrolleri ve
+                servis sürekliliği problemlerine
+                çözüm üretme deneyimi.
+
+            </p>
+
+
+            <div class="project-tech">
+
+                <span>
+                    SSH
+                </span>
+
+                <span>
+                    Network Support
+                </span>
+
+                <span>
+                    Diagnostics
+                </span>
+
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+<!-- ==================================================
+     CCNA
+================================================== -->
+
+<section
+    class="section-shell"
+    id="ccna"
 >
-  PDF'yi İndir ↓
-</a>
-GitHub’da da:
 
-Add file → Upload files → CCNA-Turkce-v2.pdf seç → Commit changes
 
-Bu kadar. documents/ klasörü oluşturmana gerek yok.
-
-html full ver
-<!doctype html>
-<html lang="tr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta
-    name="description"
-    content="Fatih Uyar | Elektrik-Elektronik Mühendisi. Ağ sistemleri, RF/anten, CCTV, IP kamera ve teknik saha operasyonları üzerine çalışan kişisel portföy sitesi."
-  />
-
-  <meta name="theme-color" content="#07111f" />
-
-  <title>Fatih Uyar | Elektrik-Elektronik Mühendisi</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="style.css" />
-
-  <style>
-
-    /* =========================
-       YAYIN KARTLARI
-    ========================== */
-
-    .publication-cards {
-      display: grid;
-      gap: 18px;
-      border-top: 0 !important;
-    }
-
-    .publication-card {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 28px;
-      padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.025)
-        );
-      transition: .3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .publication-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(112,225,245,.28);
-    }
-
-    .publication-card::after {
-      content: "";
-      position: absolute;
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      background: rgba(112,225,245,.06);
-      filter: blur(26px);
-      right: -80px;
-      bottom: -110px;
-      pointer-events: none;
-    }
-
-    .publication-card .pub-year {
-      font:
-        800 14px
-        "Space Grotesk",
-        sans-serif;
-      color: var(--accent);
-      letter-spacing: .05em;
-      padding-top: 5px;
-    }
-
-    .pub-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .pub-meta {
-      display: flex;
-      gap: 9px;
-      flex-wrap: wrap;
-      margin-bottom: 15px;
-    }
-
-    .pub-badge,
-    .pub-status {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 11px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .04em;
-      border: 1px solid var(--line);
-    }
-
-    .pub-badge {
-      color: var(--accent);
-      background: rgba(112,225,245,.06);
-    }
-
-    .pub-status.published {
-      color: #72f2b3;
-      background: rgba(114,242,179,.07);
-      border-color: rgba(114,242,179,.2);
-    }
-
-    .pub-status.accepted {
-      color: #72f2b3;
-      background: rgba(114,242,179,.07);
-      border-color: rgba(114,242,179,.2);
-    }
-
-    .publication-card h3 {
-      font-size: 24px;
-      line-height: 1.25;
-      margin: 0 0 9px;
-      max-width: 980px;
-    }
-
-    .pub-alt-title {
-      color: #aebdce !important;
-      font-style: italic;
-      margin: 0 0 13px !important;
-      max-width: 980px;
-    }
-
-    .pub-authors {
-      color: #dce6f2 !important;
-      margin: 0 0 18px !important;
-    }
-
-    .pub-info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .pub-info-grid > div {
-      padding: 14px 15px;
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      background: rgba(255,255,255,.025);
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .pub-info-grid span {
-      color: var(--muted);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-weight: 700;
-    }
-
-    .pub-info-grid strong {
-      color: #e9f0f9;
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-
-    /* =========================
-       HERO ETİKETLERİ
-    ========================== */
-
-    .chip-d {
-      top: 6%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-
-    /* =========================
-       CCNA KAYNAĞI
-    ========================== */
-
-    .ccna-card {
-      display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 40px;
-      padding: 38px;
-
-      border: 1px solid var(--line);
-      border-radius: 28px;
-
-      background:
-        radial-gradient(
-          circle at 10% 20%,
-          rgba(112,225,245,.12),
-          transparent 30%
-        ),
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.06),
-          rgba(255,255,255,.025)
-        );
-
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ccna-card::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      right: -120px;
-      bottom: -140px;
-      border-radius: 50%;
-      background: rgba(138,125,255,.10);
-      filter: blur(35px);
-    }
-
-    .ccna-icon {
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 24px;
-      border: 1px solid rgba(112,225,245,.2);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(112,225,245,.13),
-          rgba(138,125,255,.08)
-        );
-      position: relative;
-      z-index: 1;
-    }
-
-    .ccna-icon span {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 38px;
-      font-weight: 800;
-      letter-spacing: -.04em;
-      background:
-        linear-gradient(
-          100deg,
-          var(--accent),
-          #b0a7ff
-        );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .ccna-icon strong {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing: .12em;
-    }
-
-    .ccna-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .ccna-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 17px;
-    }
-
-    .ccna-badge {
-      padding: 7px 11px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 750;
-      text-transform: uppercase;
-      letter-spacing: .07em;
-    }
-
-    .ccna-content h3 {
-      margin-bottom: 14px;
-      font-size: clamp(28px, 3vw, 38px);
-    }
-
-    .ccna-content > p {
-      max-width: 800px;
-      color: var(--muted);
-    }
-
-    .ccna-topics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 24px;
-    }
-
-    .ccna-topics span {
-      padding: 7px 11px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color: #d7e1ec;
-      font-size: 12px;
-    }
-
-    .ccna-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .ccna-note {
-      margin-top: 20px !important;
-      font-size: 12px !important;
-      color: #77889d !important;
-    }
-
-
-    /* =========================
-       RESPONSIVE
-    ========================== */
-
-    @media (max-width:700px) {
-
-      .publication-card {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 22px;
-      }
-
-      .pub-info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .publication-card h3 {
-        font-size: 21px;
-      }
-
-      .chip-d {
-        top: 2%;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      .ccna-card {
-        grid-template-columns: 1fr;
-        padding: 24px;
-        gap: 25px;
-      }
-
-      .ccna-icon {
-        min-height: 150px;
-      }
-
-      .ccna-actions {
-        flex-direction: column;
-      }
-
-      .ccna-actions .btn {
-        width: 100%;
-      }
-
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-  <div class="page-grid"></div>
-
-
-  <!-- =========================
-       HEADER
-  ========================== -->
-
-  <header class="site-header" id="top">
-
-    <a
-      class="brand"
-      href="#top"
-      aria-label="Ana sayfa"
-    >
-
-      <span class="brand-mark">
-        FU
-      </span>
-
-      <span>
-        Fatih Uyar
-      </span>
-
-    </a>
-
-
-    <button
-      class="menu-btn"
-      aria-label="Menüyü aç/kapat"
-      aria-expanded="false"
-    >
-      ☰
-    </button>
-
-
-    <nav
-      class="nav"
-      aria-label="Ana navigasyon"
-    >
-
-      <a href="#about">
-        Hakkımda
-      </a>
-
-      <a href="#experience">
-        Deneyim
-      </a>
-
-      <a href="#network">
-        Ağ
-      </a>
-
-      <a href="#ccna">
-        CCNA
-      </a>
-
-      <a href="#projects">
-        Projeler
-      </a>
-
-      <a href="#publications">
-        Yayınlar
-      </a>
-
-      <a href="#skills">
-        Yetenekler
-      </a>
-
-      <a
-        class="nav-cta"
-        href="#contact"
-      >
-        İletişim
-      </a>
-
-    </nav>
-
-  </header>
-
-
-  <main>
-
-
-    <!-- =========================
-         HERO
-    ========================== -->
-
-    <section class="hero section-shell">
-
-
-      <div class="hero-copy reveal">
-
-        <div class="eyebrow">
-
-          <span class="pulse"></span>
-
-          Elektrik-Elektronik Mühendisi
-
-        </div>
-
-
-        <h1>
-
-          Teknolojiyi
-
-          <span class="gradient-text">
-            sahada çalışan
-          </span>
-
-          çözümlere dönüştürüyorum.
-
-        </h1>
-
-
-        <p class="hero-text">
-
-          Ağ sistemleri, RF/anten, CCTV, IP kamera ve teknik saha
-          operasyonlarında deneyim sahibi; araştırma ile uygulamayı
-          bir araya getiren Elektrik-Elektronik Mühendisiyim.
-
-        </p>
-
-
-        <div class="hero-actions">
-
-          <a
-            class="btn btn-primary"
-            href="#projects"
-          >
-            Projelerimi İncele
-            <span>↘</span>
-          </a>
-
-
-          <a
-            class="btn btn-secondary"
-            href="mailto:uyarfatih5@gmail.com"
-          >
-            Bana Ulaş
-          </a>
-
-        </div>
-
-
-        <div class="hero-metrics">
-
-          <div>
-
-            <strong>NET</strong>
-
-            <span>
-              Ağ & Sistem
-            </span>
-
-          </div>
-
-
-          <div>
-
-            <strong>RF</strong>
-
-            <span>
-              Anten Sistemleri
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="hero-visual reveal delay-1">
-
-        <div class="orbit orbit-one"></div>
-
-        <div class="orbit orbit-two"></div>
-
-
-        <div class="portrait-card">
-
-          <div class="portrait-frame">
-
-            <img
-              src="assets/profil.jpg"
-              alt="Fatih Uyar profil fotoğrafı"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"
-            />
-
-            <div class="portrait-fallback">
-              FU
-            </div>
-
-          </div>
-
-
-          <div class="portrait-label">
-
-            <span class="status-dot"></span>
-
-            <div>
-
-              <strong>
-                Fatih Uyar
-              </strong>
-
-              <small>
-                Konya, Turkey
-              </small>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="floating-chip chip-a">
-          Networks
-        </div>
-
-        <div class="floating-chip chip-b">
-          RF Systems
-        </div>
-
-        <div class="floating-chip chip-c">
-          ESP32
-        </div>
-
-        <div class="floating-chip chip-d">
-          CCTV / IP Kamera
-        </div>
-
-      </div>
-
-
-    </section>
-
-
-
-    <!-- =========================
-         MARQUEE
-    ========================== -->
-
-    <section
-      class="marquee"
-      aria-label="Uzmanlık alanları"
-    >
-
-      <div class="marquee-track">
-
-        <span>Elektrik-Elektronik</span>
-        <i>✦</i>
-
-        <span>Ağ Sistemleri</span>
-        <i>✦</i>
-
-        <span>Switch & Router</span>
-        <i>✦</i>
-
-        <span>RF & Anten</span>
-        <i>✦</i>
-
-        <span>CCTV / IP Kamera</span>
-        <i>✦</i>
-
-        <span>CCNA</span>
-        <i>✦</i>
-
-        <span>ESP32</span>
-        <i>✦</i>
-
-        <span>MATLAB</span>
-        <i>✦</i>
-
-        <span>Python</span>
-        <i>✦</i>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         HAKKIMDA
-    ========================== -->
-
-    <section
-      class="section-shell two-col"
-      id="about"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          01 / HAKKIMDA
-        </span>
-
-        <h2>
-          Mühendislik, araştırma ve saha deneyimi.
-        </h2>
-
-      </div>
-
-
-      <div class="about-copy reveal delay-1">
-
-        <p>
-
-          Mersin Üniversitesi Elektrik-Elektronik Mühendisliği mezunuyum.
-          Üniversite, staj ve saha çalışmalarım boyunca ağ altyapıları,
-          CCTV sistemleri, RF ölçümleri, anten uygulamaları ve teknik
-          operasyonlar üzerine çalıştım.
-
-        </p>
-
-
-        <p>
-
-          Teknik problemleri yalnızca teorik olarak değil; devreye alma,
-          arıza analizi, konfigürasyon, veri işleme, yazılım geliştirme
-          ve performans değerlendirmesi gibi uçtan uca süreçlerle ele
-          almayı seviyorum.
-
-        </p>
-
-
-        <div class="mini-cards">
-
-          <div class="mini-card">
-
-            <span>
-              Odak
-            </span>
-
-            <strong>
-              Network + RF + IT
-            </strong>
-
-          </div>
-
-
-          <div class="mini-card">
-
-            <span>
-              Yaklaşım
-            </span>
-
-            <strong>
-              Analitik & Uygulamalı
-            </strong>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         DENEYİM
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="experience"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          02 / DENEYİM
-        </span>
-
-        <h2>
-          Sahada öğrendim, projelerde geliştirdim.
-        </h2>
-
-      </div>
-
-
-      <div class="timeline">
-
-
-        <!-- ÖZATEŞ -->
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2026–
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              Özateş İleri Teknoloji
-            </h3>
-
-            <p class="role">
-              KGYS Personeli / Teknik Saha
-            </p>
-
-            <p>
-
-              KGYS kapsamında kamera ve saha ekipmanlarının bakım ve
-              onarım işlemleri, saha kabinlerinin temizliği, UPS bakım
-              ve kontrolleri, kamera temizliği ve GEKO sistemlerine
-              uzaktan erişim sağlayarak arıza tespit ve giderme
-              çalışmalarında görev alıyorum.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- RDT -->
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2022–
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              RDT Teknoloji
-            </h3>
-
-            <p class="role">
-              Elektrik-Elektronik / Saha
-            </p>
-
-            <p>
-
-              EDS, altyapı, CCTV, IP kamera devreye alma, NVR
-              bağlantıları, teknik çizim ve saha uygulamalarında görev.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- BTK -->
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2025
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              Bilgi Teknolojileri ve İletişim Kurumu
-            </h3>
-
-            <p class="role">
-              Stajyer
-            </p>
-
-            <p>
-
-              Spektrum izleme, RF ölçümleri, yönlü antenler, baz
-              istasyonu sertifikasyon süreçleri, radyo linkler ve
-              saha denetimleri üzerine deneyim.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- MERSİN ÜNİVERSİTESİ -->
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2024–2025
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              Mersin Üniversitesi Bilgi İşlem Daire Başkanlığı
-            </h3>
-
-            <p class="role">
-              Ağ Hizmetleri
-            </p>
-
-            <p>
-
-              Kampüs ağ altyapısı, switch ve sistem operasyonları,
-              temel ağ izleme, IP tabanlı yapıların takibi ve teknik
-              destek süreçlerinde uygulamalı çalışma.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2025–2026
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              Mersin Üniversitesi Bilgi İşlem Daire Başkanlığı
-            </h3>
-
-            <p class="role">
-              Ağ Hizmetleri
-            </p>
-
-            <p>
-
-              Kampüs ağ altyapısı, switch ve sistem operasyonları,
-              temel ağ izleme, IP tabanlı yapıların takibi ve teknik
-              destek süreçlerinde uygulamalı çalışma.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         AĞ ODAĞI
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="network"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          03 / AĞ ODAĞI
-        </span>
-
-        <h2>
-          Ağ altyapısı ve saha operasyonları.
-        </h2>
-
-      </div>
-
-
-      <div class="project-grid network-grid">
-
-
-        <article class="project-card featured reveal">
-
-          <div class="project-number">
-            01
-          </div>
-
-          <div class="project-tag">
-            Ağ Altyapısı
-          </div>
-
-          <h3>
-            Kampüs Ağ Operasyonları
-          </h3>
-
-          <p>
-
-            Switch tabanlı altyapıların takibi, bağlantı sorunlarının
-            analizi, ağ topolojisinin anlaşılması ve saha destek
-            süreçlerinde aktif rol aldım.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>Switching</span>
-            <span>IP Addressing</span>
-            <span>Troubleshooting</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            02
-          </div>
-
-          <div class="project-tag">
-            CCTV & Güvenlik
-          </div>
-
-          <h3>
-            IP Kamera ve NVR Ağ Entegrasyonu
-          </h3>
-
-          <p>
-
-            PoE destekli kamera ağları, IP kamera devreye alma,
-            kayıt altyapısı ve bağlantı/test süreçlerinde saha
-            tecrübesi.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>CCTV</span>
-            <span>PoE</span>
-            <span>NVR</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal">
-
-          <div class="project-number">
-            03
-          </div>
-
-          <div class="project-tag">
-            Kablosuz Bağlantı
-          </div>
-
-          <h3>
-            Kablosuz Ağ ve WISP Kurulumları
-          </h3>
-
-          <p>
-
-            Kablosuz erişim, repeater/WISP senaryoları, temel erişim
-            noktası yapılandırmaları ve bağlantı optimizasyonu
-            üzerine çalışma.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>Access Point</span>
-            <span>WISP</span>
-            <span>Wireless</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            04
-          </div>
-
-          <div class="project-tag">
-            Sistem Yönetimi
-          </div>
-
-          <h3>
-            Ağ Destek ve Arıza Analizi
-          </h3>
-
-          <p>
-
-            Bağlantı kesintileri, cihaz erişimi, IP yapılandırması,
-            saha kontrolleri ve temel servis sürekliliği
-            problemlerine çözüm üretme deneyimi.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>SSH</span>
-            <span>Network Support</span>
-            <span>Diagnostics</span>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CCNA ÇALIŞMALARI
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="ccna"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          04 / CCNA ÇALIŞMALARI
-        </span>
-
-        <h2>
-          Ağ teknolojileri üzerine çalışma kaynağım.
-        </h2>
-
-      </div>
-
-
-      <div class="ccna-card reveal">
-
-        <div class="ccna-icon">
-
-          <span>
-            CCNA
-          </span>
-
-          <strong>
-            200-301
-          </strong>
-
-        </div>
-
-
-        <div class="ccna-content">
-
-          <div class="ccna-meta">
-
-            <span class="ccna-badge">
-              Türkçe
-            </span>
-
-            <span class="ccna-badge">
-              Network
-            </span>
-
-            <span class="ccna-badge">
-              CCNA 200-301 v1.1
-            </span>
-
-          </div>
-
-
-          <h3>
-            Sıfırdan CCNA Türkçe Öğrenme Kitabı
-          </h3>
-
-
-          <p>
-
-            Ağ teknolojilerini sıfırdan öğrenmek ve CCNA konularını
-            Türkçe olarak çalışmak için hazırlanmış kapsamlı çalışma
-            kaynağı. Temel ağ kavramlarından başlayarak IPv4 ve IPv6,
-            switching, routing, güvenlik, kablosuz ağlar, servisler,
-            otomasyon ve uygulamalı laboratuvar konularını içerir.
-
-          </p>
-
-
-          <div class="ccna-topics">
-
-            <span>IPv4</span>
-            <span>IPv6</span>
-            <span>Subnetting</span>
-            <span>VLSM</span>
-            <span>Cisco IOS</span>
-            <span>VLAN</span>
-            <span>Trunk</span>
-            <span>STP</span>
-            <span>EtherChannel</span>
-            <span>Routing</span>
-            <span>OSPF</span>
-            <span>DHCP</span>
-            <span>DNS</span>
-            <span>NAT</span>
-            <span>ACL</span>
-            <span>Wireless</span>
-            <span>Network Security</span>
-            <span>Automation</span>
-            <span>Packet Tracer</span>
-            <span>Wireshark</span>
-
-          </div>
-
-
-          <div class="ccna-actions">
-
-            <a
-              class="btn btn-primary"
-              href="CCNA-Turkce-v2.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              PDF'yi Görüntüle ↗
-            </a>
-
-
-            <a
-              class="btn btn-secondary"
-              href="CCNA-Turkce-v2.pdf"
-              download
-            >
-              PDF'yi İndir ↓
-            </a>
-
-          </div>
-
-
-          <p class="ccna-note">
-
-            Bu çalışma resmi bir Cisco yayını değildir.
-            CCNA konularını öğrenme ve uygulama amacıyla kullanılan
-            kişisel bir çalışma kaynağıdır.
-
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         PROJELER
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="projects"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          05 / SEÇİLİ PROJELER
-        </span>
-
-        <h2>
-          Fikirden çalışan sisteme.
-        </h2>
-
-      </div>
-
-
-      <div class="project-grid">
-
-
-        <article class="project-card reveal">
-
-          <div class="project-number">
-            01
-          </div>
-
-          <div class="project-tag">
-            RF · Optimizasyon
-          </div>
-
-          <h3>
-            Anten Dizilerinde Sıfırlama
-          </h3>
-
-          <p>
-
-            Faz/genlik kontrollü doğrusal anten dizilerinde null
-            yönlendirme, kuantizasyon ve optimizasyon performansı
-            üzerine araştırma.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>MATLAB</span>
-            <span>Array Processing</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            02
-          </div>
-
-          <div class="project-tag">
-            ESP32 · Kablosuz
-          </div>
-
-          <h3>
-            ESP-NOW Uzaktan Kontrol
-          </h3>
-
-          <p>
-
-            Joystick verisini kablosuz olarak aktaran, servo
-            mekanizmasını yöneten ve CRC tabanlı veri bütünlüğü
-            kullanan ESP32 sistemi.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>ESP32</span>
-            <span>C/C++</span>
-            <span>ESP-NOW</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal">
-
-          <div class="project-number">
-            03
-          </div>
-
-          <div class="project-tag">
-            Enerji · Tasarım
-          </div>
-
-          <h3>
-            Fotovoltaik Sistem Tasarımı
-          </h3>
-
-          <p>
-
-            Off-grid ve on-grid PV sistemlerinde panel, inverter,
-            string/MPPT, akü ve kablo boyutlandırma çalışmaları.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>PV</span>
-            <span>Power Systems</span>
-            <span>MATLAB</span>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            04
-          </div>
-
-          <div class="project-tag">
-            Saha · Otomasyon
-          </div>
-
-          <h3>
-            Drone ile Boya Püskürtme Sistemi
-          </h3>
-
-          <p>
-
-            Yüksek yapılarda boya uygulamasını daha güvenli hale
-            getirmeyi amaçlayan, uzaktan kontrol ve püskürtme
-            mekanizmasını birleştiren bitirme projesi.
-
-          </p>
-
-          <div class="project-tech">
-
-            <span>Embedded</span>
-            <span>Remote Control</span>
-            <span>Design</span>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         YAYINLAR
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="publications"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          06 / YAYINLAR & BİLDİRİLER
-        </span>
-
-        <h2>
-          Akademik çalışmalarım ve yayınlarım.
-        </h2>
-
-      </div>
-
-
-      <div class="publication-list publication-cards">
-
-
-        <!-- KONFERANS BİLDİRİSİ -->
-
-        <article
-          class="publication publication-card reveal"
-        >
-
-          <span class="pub-year">
-            2026
-          </span>
-
-
-          <div class="pub-content">
-
-
-            <div class="pub-meta">
-
-              <span class="pub-badge">
-                Uluslararası Konferans Bildirisi
-              </span>
-
-              <span class="pub-status published">
-                Yayımlandı
-              </span>
-
-            </div>
-
-
-            <h3>
-
-              Faz Kontrollü Doğrusal Anten Dizilerindeki Faz
-              Değerlerine Yapılan Yuvarlama İşleminin Sıfırlama
-              Performansı Üzerine Etkileri
-
-            </h3>
-
-
-            <p class="pub-alt-title">
-
-              Effects of Rounding of Phase Values in Phase Controlled
-              Linear Antenna Arrays on Null Steering Performance
-
-            </p>
-
-
-            <p class="pub-authors">
-
-              <strong>
-                Dr. Öğr. Üyesi Filiz Karaömerlioğlu
-              </strong>,
-
-              <strong>
-                Fatih Uyar
-              </strong>,
-
-              <strong>
-                Prof. Dr. Ali Akdağlı
-              </strong>,
-
-              <strong>
-                Doç. Dr. Ali Yıldız
-              </strong>
-
-            </p>
-
-
-            <div class="pub-info-grid">
-
-
-              <div>
-
-                <span>
-                  Etkinlik
-                </span>
-
-                <strong>
-                  III. International Mediterranean Scientific
-                  Studies Conference
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Tarih / Yer
-                </span>
-
-                <strong>
-                  13–15 Mart 2026 · Adana, Türkiye
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Yayın
-                </span>
-
-                <strong>
-                  Conference Book
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Alan
-                </span>
-
-                <strong>
-                  Anten Dizileri · Faz Kuantizasyonu · Null Steering
-                </strong>
-
-              </div>
-
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- DERGİ MAKALESİ -->
-
-        <article
-          class="publication publication-card reveal"
-        >
-
-          <span class="pub-year">
-            2026
-          </span>
-
-
-          <div class="pub-content">
-
-
-            <div class="pub-meta">
-
-              <span class="pub-badge">
-                Dergi Makalesi
-              </span>
-
-              <span class="pub-status accepted">
-                Kabul Edildi
-              </span>
-
-            </div>
-
-
-            <h3>
-
-              Investigation of Quantization Effects on
-              Amplitude-Only Null Steering Performance in
-              Linear Antenna Arrays
-
-            </h3>
-
-
-            <p class="pub-alt-title">
-
-              Genlik kontrollü doğrusal anten dizilerinde kuantizasyon
-              etkilerinin null steering performansı üzerindeki
-              etkilerinin incelenmesi.
-
-            </p>
-
-
-            <div class="pub-info-grid">
-
-
-              <div>
-
-                <span>
-                  Dergi
-                </span>
-
-                <strong>
-                  International Advanced Researches and Engineering Journal
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Durum
-                </span>
-
-                <strong>
-                  Accepted
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Makale ID
-                </span>
-
-                <strong>
-                  1985042
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Alan
-                </span>
-
-                <strong>
-                  Amplitude-Only Null Steering · Quantization ·
-                  Linear Antenna Arrays
-                </strong>
-
-              </div>
-
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         YETENEKLER
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="skills"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          07 / YETENEKLER
-        </span>
-
-        <h2>
-          Kullandığım teknoloji ve araçlar.
-        </h2>
-
-      </div>
-
-
-      <div class="skills-wrap reveal">
-
-        <span>Network Systems</span>
-        <span>Switching</span>
-        <span>Routing</span>
-        <span>IP Addressing</span>
-        <span>Subnetting</span>
-        <span>VLAN</span>
-        <span>Wireless Networks</span>
-        <span>PoE</span>
-        <span>CCTV / IP Camera</span>
-        <span>NVR</span>
-        <span>SSH</span>
-        <span>Packet Tracer</span>
-        <span>Wireshark</span>
-        <span>Python</span>
-        <span>MATLAB / Simulink</span>
-        <span>C / C++</span>
-        <span>HTML / CSS</span>
-        <span>AutoCAD</span>
-        <span>PLC</span>
-        <span>ESP32</span>
-        <span>RF Measurement</span>
-        <span>Power Systems</span>
-        <span>MS Office</span>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         İLETİŞİM
-    ========================== -->
-
-    <section
-      class="contact section-shell"
-      id="contact"
-    >
-
-      <div class="contact-card reveal">
+    <div class="section-heading reveal">
 
 
         <span class="section-index">
-          08 / İLETİŞİM
+
+            04 / CCNA ÇALIŞMALARI
+
         </span>
 
 
         <h2>
-          Bir proje veya fırsat için konuşalım.
+
+            Ağ teknolojileri üzerine çalışma kaynağım.
+
         </h2>
 
 
-        <p>
+    </div>
 
-          Teknik projeler, iş fırsatları veya akademik çalışmalar
-          için benimle iletişime geçebilirsin.
 
-        </p>
 
+    <div class="ccna-card reveal">
 
-        <div class="contact-actions">
 
 
-          <a
-            class="btn btn-primary"
-            href="mailto:uyarfatih5@gmail.com"
-          >
-            uyarfatih5@gmail.com ↗
-          </a>
+        <!-- KAPAK -->
 
-
-          <a
-            class="btn btn-secondary"
-            href="https://github.com/fatihuyar"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub ↗
-          </a>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer class="footer section-shell">
-
-    <span>
-      © <span id="year"></span> Fatih Uyar
-    </span>
-
-    <span>
-      Electrical & Electronics Engineer
-    </span>
-
-    <a href="#top">
-      Yukarı ↑
-    </a>
-
-  </footer>
-
-
-  <script src="script.js"></script>
-
-</body>
-</html>
-
-Burada PDF linkini özellikle doğrudan:
-
-href="CCNA-Turkce-v2.pdf"
-
-yaptım. Yani GitHub'da index.html ile aynı dizine CCNA-Turkce-v2.pdf dosyasını yüklemen yeterli.
-
-kitap kapağını jpeg ver
-Kitabın ilk sayfasını JPEG kapak görseli olarak çıkardım.
-
-
-CCNA-Turkce-kapak.jpg
-Görsel
-bunu da siteye ekleyecem
-Evet, çok daha iyi olur. Kapak görselini de CCNA kartına koyarsan bölüm daha profesyonel görünür.
-
-GitHub’da şu yapıyı kullan:
-
-index.html
-style.css
-script.js
-CCNA-Turkce-v2.pdf
-assets/
-  profil.jpg
-  CCNA-Turkce-kapak.jpg
-Sonra CCNA bölümündeki şu kısmı:
-
-<div class="ccna-icon">
-
-  <span>
-    CCNA
-  </span>
-
-  <strong>
-    200-301
-  </strong>
-
-</div>
-
-şununla değiştir:
-
-<div class="ccna-cover">
-
-  <img
-    src="assets/CCNA-Turkce-kapak.jpg"
-    alt="Sıfırdan CCNA Türkçe Öğrenme Kitabı kapağı"
-  >
-
-</div>
-
-CSS’e de şunu ekle:
-
-.ccna-cover {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-  z-index: 1;
-}
-
-.ccna-cover img {
-  width: 100%;
-  max-width: 210px;
-
-  border-radius: 18px;
-
-  display: block;
-
-  box-shadow:
-    0 22px 50px rgba(0,0,0,.35);
-
-  border:
-    1px solid rgba(255,255,255,.10);
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-}
-
-.ccna-cover img:hover {
-  transform:
-    translateY(-5px)
-    scale(1.02);
-
-  box-shadow:
-    0 28px 65px rgba(0,0,0,.45);
-}
-
-@media (max-width:700px) {
-
-  .ccna-cover img {
-    max-width: 180px;
-  }
-
-}
-
-Böylece kart yaklaşık şöyle görünecek:
-
-┌─────────────┐   Sıfırdan CCNA Türkçe Öğrenme Kitabı
-│             │   Türkçe · Network · CCNA 200-301
-│   KİTAP     │
-│   KAPAĞI    │   Açıklama...
-│             │
-└─────────────┘   IPv4 · IPv6 · VLAN · OSPF...
-                  [PDF'yi Görüntüle] [PDF'yi İndir]
-Yani hem PDF hem kapağı aynı kartta olur ve çok daha iyi görünür.
-
-yeniden ver html dosyasını
-Aşağıdaki sürümde kitap kapağı da CCNA bölümüne eklendi. GitHub yapın şu şekilde olmalı:
-
-index.html
-style.css
-script.js
-CCNA-Turkce-v2.pdf
-assets/
-  profil.jpg
-  CCNA-Turkce-kapak.jpg
-<!doctype html>
-<html lang="tr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta
-    name="description"
-    content="Fatih Uyar | Elektrik-Elektronik Mühendisi. Ağ sistemleri, RF/anten, CCTV, IP kamera ve teknik saha operasyonları üzerine çalışan kişisel portföy sitesi."
-  />
-
-  <meta name="theme-color" content="#07111f" />
-
-  <title>Fatih Uyar | Elektrik-Elektronik Mühendisi</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="style.css" />
-
-  <style>
-
-    /* =========================
-       YAYIN KARTLARI
-    ========================== */
-
-    .publication-cards {
-      display: grid;
-      gap: 18px;
-      border-top: 0 !important;
-    }
-
-    .publication-card {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 28px;
-      padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.025)
-        );
-      transition: .3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .publication-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(112,225,245,.28);
-    }
-
-    .publication-card::after {
-      content: "";
-      position: absolute;
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      background: rgba(112,225,245,.06);
-      filter: blur(26px);
-      right: -80px;
-      bottom: -110px;
-      pointer-events: none;
-    }
-
-    .publication-card .pub-year {
-      font:
-        800 14px
-        "Space Grotesk",
-        sans-serif;
-      color: var(--accent);
-      letter-spacing: .05em;
-      padding-top: 5px;
-    }
-
-    .pub-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .pub-meta {
-      display: flex;
-      gap: 9px;
-      flex-wrap: wrap;
-      margin-bottom: 15px;
-    }
-
-    .pub-badge,
-    .pub-status {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 11px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .04em;
-      border: 1px solid var(--line);
-    }
-
-    .pub-badge {
-      color: var(--accent);
-      background: rgba(112,225,245,.06);
-    }
-
-    .pub-status.published,
-    .pub-status.accepted {
-      color: #72f2b3;
-      background: rgba(114,242,179,.07);
-      border-color: rgba(114,242,179,.2);
-    }
-
-    .publication-card h3 {
-      font-size: 24px;
-      line-height: 1.25;
-      margin: 0 0 9px;
-      max-width: 980px;
-    }
-
-    .pub-alt-title {
-      color: #aebdce !important;
-      font-style: italic;
-      margin: 0 0 13px !important;
-      max-width: 980px;
-    }
-
-    .pub-authors {
-      color: #dce6f2 !important;
-      margin: 0 0 18px !important;
-    }
-
-    .pub-info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .pub-info-grid > div {
-      padding: 14px 15px;
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      background: rgba(255,255,255,.025);
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .pub-info-grid span {
-      color: var(--muted);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-weight: 700;
-    }
-
-    .pub-info-grid strong {
-      color: #e9f0f9;
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-
-    /* =========================
-       HERO ETİKETLERİ
-    ========================== */
-
-    .chip-d {
-      top: 6%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-
-    /* =========================
-       CCNA KAYNAĞI
-    ========================== */
-
-    .ccna-card {
-      display: grid;
-      grid-template-columns: 230px 1fr;
-      gap: 40px;
-      padding: 38px;
-
-      border: 1px solid var(--line);
-      border-radius: 28px;
-
-      background:
-        radial-gradient(
-          circle at 10% 20%,
-          rgba(112,225,245,.12),
-          transparent 30%
-        ),
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.06),
-          rgba(255,255,255,.025)
-        );
-
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ccna-card::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      right: -120px;
-      bottom: -140px;
-      border-radius: 50%;
-      background: rgba(138,125,255,.10);
-      filter: blur(35px);
-    }
-
-    .ccna-cover {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      position: relative;
-      z-index: 1;
-    }
-
-    .ccna-cover img {
-      width: 100%;
-      max-width: 210px;
-
-      border-radius: 18px;
-
-      display: block;
-
-      border: 1px solid rgba(255,255,255,.10);
-
-      box-shadow:
-        0 22px 50px rgba(0,0,0,.35);
-
-      transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-    }
-
-    .ccna-cover img:hover {
-      transform:
-        translateY(-5px)
-        scale(1.02);
-
-      box-shadow:
-        0 28px 65px rgba(0,0,0,.45);
-    }
-
-    .ccna-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .ccna-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 17px;
-    }
-
-    .ccna-badge {
-      padding: 7px 11px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 750;
-      text-transform: uppercase;
-      letter-spacing: .07em;
-    }
-
-    .ccna-content h3 {
-      margin-bottom: 14px;
-      font-size: clamp(28px, 3vw, 38px);
-    }
-
-    .ccna-content > p {
-      max-width: 800px;
-      color: var(--muted);
-    }
-
-    .ccna-topics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 24px;
-    }
-
-    .ccna-topics span {
-      padding: 7px 11px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color: #d7e1ec;
-      font-size: 12px;
-    }
-
-    .ccna-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .ccna-note {
-      margin-top: 20px !important;
-      font-size: 12px !important;
-      color: #77889d !important;
-    }
-
-
-    /* =========================
-       RESPONSIVE
-    ========================== */
-
-    @media (max-width:700px) {
-
-      .publication-card {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 22px;
-      }
-
-      .pub-info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .publication-card h3 {
-        font-size: 21px;
-      }
-
-      .chip-d {
-        top: 2%;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      .ccna-card {
-        grid-template-columns: 1fr;
-        padding: 24px;
-        gap: 25px;
-      }
-
-      .ccna-cover img {
-        max-width: 180px;
-      }
-
-      .ccna-actions {
-        flex-direction: column;
-      }
-
-      .ccna-actions .btn {
-        width: 100%;
-      }
-
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-  <div class="page-grid"></div>
-
-
-  <!-- =========================
-       HEADER
-  ========================== -->
-
-  <header class="site-header" id="top">
-
-    <a
-      class="brand"
-      href="#top"
-      aria-label="Ana sayfa"
-    >
-
-      <span class="brand-mark">
-        FU
-      </span>
-
-      <span>
-        Fatih Uyar
-      </span>
-
-    </a>
-
-
-    <button
-      class="menu-btn"
-      aria-label="Menüyü aç/kapat"
-      aria-expanded="false"
-    >
-      ☰
-    </button>
-
-
-    <nav
-      class="nav"
-      aria-label="Ana navigasyon"
-    >
-
-      <a href="#about">Hakkımda</a>
-      <a href="#experience">Deneyim</a>
-      <a href="#network">Ağ</a>
-      <a href="#ccna">CCNA</a>
-      <a href="#projects">Projeler</a>
-      <a href="#publications">Yayınlar</a>
-      <a href="#skills">Yetenekler</a>
-
-      <a
-        class="nav-cta"
-        href="#contact"
-      >
-        İletişim
-      </a>
-
-    </nav>
-
-  </header>
-
-
-  <main>
-
-
-    <!-- =========================
-         HERO
-    ========================== -->
-
-    <section class="hero section-shell">
-
-
-      <div class="hero-copy reveal">
-
-        <div class="eyebrow">
-          <span class="pulse"></span>
-          Elektrik-Elektronik Mühendisi
-        </div>
-
-
-        <h1>
-          Teknolojiyi
-          <span class="gradient-text">
-            sahada çalışan
-          </span>
-          çözümlere dönüştürüyorum.
-        </h1>
-
-
-        <p class="hero-text">
-
-          Ağ sistemleri, RF/anten, CCTV, IP kamera ve teknik saha
-          operasyonlarında deneyim sahibi; araştırma ile uygulamayı
-          bir araya getiren Elektrik-Elektronik Mühendisiyim.
-
-        </p>
-
-
-        <div class="hero-actions">
-
-          <a
-            class="btn btn-primary"
-            href="#projects"
-          >
-            Projelerimi İncele
-            <span>↘</span>
-          </a>
-
-
-          <a
-            class="btn btn-secondary"
-            href="mailto:uyarfatih5@gmail.com"
-          >
-            Bana Ulaş
-          </a>
-
-        </div>
-
-
-        <div class="hero-metrics">
-
-          <div>
-            <strong>NET</strong>
-            <span>Ağ & Sistem</span>
-          </div>
-
-
-          <div>
-            <strong>RF</strong>
-            <span>Anten Sistemleri</span>
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="hero-visual reveal delay-1">
-
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-
-
-        <div class="portrait-card">
-
-          <div class="portrait-frame">
-
-            <img
-              src="assets/profil.jpg"
-              alt="Fatih Uyar profil fotoğrafı"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"
-            />
-
-            <div class="portrait-fallback">
-              FU
-            </div>
-
-          </div>
-
-
-          <div class="portrait-label">
-
-            <span class="status-dot"></span>
-
-            <div>
-
-              <strong>
-                Fatih Uyar
-              </strong>
-
-              <small>
-                Konya, Turkey
-              </small>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="floating-chip chip-a">
-          Networks
-        </div>
-
-        <div class="floating-chip chip-b">
-          RF Systems
-        </div>
-
-        <div class="floating-chip chip-c">
-          ESP32
-        </div>
-
-        <div class="floating-chip chip-d">
-          CCTV / IP Kamera
-        </div>
-
-      </div>
-
-
-    </section>
-
-
-
-    <!-- =========================
-         MARQUEE
-    ========================== -->
-
-    <section
-      class="marquee"
-      aria-label="Uzmanlık alanları"
-    >
-
-      <div class="marquee-track">
-
-        <span>Elektrik-Elektronik</span>
-        <i>✦</i>
-
-        <span>Ağ Sistemleri</span>
-        <i>✦</i>
-
-        <span>Switch & Router</span>
-        <i>✦</i>
-
-        <span>RF & Anten</span>
-        <i>✦</i>
-
-        <span>CCTV / IP Kamera</span>
-        <i>✦</i>
-
-        <span>CCNA</span>
-        <i>✦</i>
-
-        <span>ESP32</span>
-        <i>✦</i>
-
-        <span>MATLAB</span>
-        <i>✦</i>
-
-        <span>Python</span>
-        <i>✦</i>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         HAKKIMDA
-    ========================== -->
-
-    <section
-      class="section-shell two-col"
-      id="about"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          01 / HAKKIMDA
-        </span>
-
-        <h2>
-          Mühendislik, araştırma ve saha deneyimi.
-        </h2>
-
-      </div>
-
-
-      <div class="about-copy reveal delay-1">
-
-        <p>
-
-          Mersin Üniversitesi Elektrik-Elektronik Mühendisliği mezunuyum.
-          Üniversite, staj ve saha çalışmalarım boyunca ağ altyapıları,
-          CCTV sistemleri, RF ölçümleri, anten uygulamaları ve teknik
-          operasyonlar üzerine çalıştım.
-
-        </p>
-
-
-        <p>
-
-          Teknik problemleri yalnızca teorik olarak değil; devreye alma,
-          arıza analizi, konfigürasyon, veri işleme, yazılım geliştirme
-          ve performans değerlendirmesi gibi uçtan uca süreçlerle ele
-          almayı seviyorum.
-
-        </p>
-
-
-        <div class="mini-cards">
-
-          <div class="mini-card">
-            <span>Odak</span>
-            <strong>Network + RF + IT</strong>
-          </div>
-
-
-          <div class="mini-card">
-            <span>Yaklaşım</span>
-            <strong>Analitik & Uygulamalı</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         DENEYİM
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="experience"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          02 / DENEYİM
-        </span>
-
-        <h2>
-          Sahada öğrendim, projelerde geliştirdim.
-        </h2>
-
-      </div>
-
-
-      <div class="timeline">
-
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2026–
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              Özateş İleri Teknoloji
-            </h3>
-
-            <p class="role">
-              KGYS Personeli / Teknik Saha
-            </p>
-
-            <p>
-
-              KGYS kapsamında kamera ve saha ekipmanlarının bakım ve
-              onarım işlemleri, saha kabinlerinin temizliği, UPS bakım
-              ve kontrolleri, kamera temizliği ve GEKO sistemlerine
-              uzaktan erişim sağlayarak arıza tespit ve giderme
-              çalışmalarında görev alıyorum.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2022–
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              RDT Teknoloji
-            </h3>
-
-            <p class="role">
-              Elektrik-Elektronik / Saha
-            </p>
-
-            <p>
-
-              EDS, altyapı, CCTV, IP kamera devreye alma, NVR
-              bağlantıları, teknik çizim ve saha uygulamalarında görev.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2025
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              Bilgi Teknolojileri ve İletişim Kurumu
-            </h3>
-
-            <p class="role">
-              Stajyer
-            </p>
-
-            <p>
-
-              Spektrum izleme, RF ölçümleri, yönlü antenler, baz
-              istasyonu sertifikasyon süreçleri, radyo linkler ve
-              saha denetimleri üzerine deneyim.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2024–2025
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              Mersin Üniversitesi Bilgi İşlem Daire Başkanlığı
-            </h3>
-
-            <p class="role">
-              Ağ Hizmetleri
-            </p>
-
-            <p>
-
-              Kampüs ağ altyapısı, switch ve sistem operasyonları,
-              temel ağ izleme, IP tabanlı yapıların takibi ve teknik
-              destek süreçlerinde uygulamalı çalışma.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-date">
-            2025–2026
-          </div>
-
-
-          <div class="timeline-body">
-
-            <h3>
-              Mersin Üniversitesi Bilgi İşlem Daire Başkanlığı
-            </h3>
-
-            <p class="role">
-              Ağ Hizmetleri
-            </p>
-
-            <p>
-
-              Kampüs ağ altyapısı, switch ve sistem operasyonları,
-              temel ağ izleme, IP tabanlı yapıların takibi ve teknik
-              destek süreçlerinde uygulamalı çalışma.
-
-            </p>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         AĞ ODAĞI
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="network"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          03 / AĞ ODAĞI
-        </span>
-
-        <h2>
-          Ağ altyapısı ve saha operasyonları.
-        </h2>
-
-      </div>
-
-
-      <div class="project-grid network-grid">
-
-
-        <article class="project-card featured reveal">
-
-          <div class="project-number">
-            01
-          </div>
-
-          <div class="project-tag">
-            Ağ Altyapısı
-          </div>
-
-          <h3>
-            Kampüs Ağ Operasyonları
-          </h3>
-
-          <p>
-
-            Switch tabanlı altyapıların takibi, bağlantı sorunlarının
-            analizi, ağ topolojisinin anlaşılması ve saha destek
-            süreçlerinde aktif rol aldım.
-
-          </p>
-
-          <div class="project-tech">
-            <span>Switching</span>
-            <span>IP Addressing</span>
-            <span>Troubleshooting</span>
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            02
-          </div>
-
-          <div class="project-tag">
-            CCTV & Güvenlik
-          </div>
-
-          <h3>
-            IP Kamera ve NVR Ağ Entegrasyonu
-          </h3>
-
-          <p>
-
-            PoE destekli kamera ağları, IP kamera devreye alma,
-            kayıt altyapısı ve bağlantı/test süreçlerinde saha
-            tecrübesi.
-
-          </p>
-
-          <div class="project-tech">
-            <span>CCTV</span>
-            <span>PoE</span>
-            <span>NVR</span>
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal">
-
-          <div class="project-number">
-            03
-          </div>
-
-          <div class="project-tag">
-            Kablosuz Bağlantı
-          </div>
-
-          <h3>
-            Kablosuz Ağ ve WISP Kurulumları
-          </h3>
-
-          <p>
-
-            Kablosuz erişim, repeater/WISP senaryoları, temel erişim
-            noktası yapılandırmaları ve bağlantı optimizasyonu
-            üzerine çalışma.
-
-          </p>
-
-          <div class="project-tech">
-            <span>Access Point</span>
-            <span>WISP</span>
-            <span>Wireless</span>
-          </div>
-
-        </article>
-
-
-
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            04
-          </div>
-
-          <div class="project-tag">
-            Sistem Yönetimi
-          </div>
-
-          <h3>
-            Ağ Destek ve Arıza Analizi
-          </h3>
-
-          <p>
-
-            Bağlantı kesintileri, cihaz erişimi, IP yapılandırması,
-            saha kontrolleri ve temel servis sürekliliği
-            problemlerine çözüm üretme deneyimi.
-
-          </p>
-
-          <div class="project-tech">
-            <span>SSH</span>
-            <span>Network Support</span>
-            <span>Diagnostics</span>
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CCNA ÇALIŞMALARI
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="ccna"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          04 / CCNA ÇALIŞMALARI
-        </span>
-
-        <h2>
-          Ağ teknolojileri üzerine çalışma kaynağım.
-        </h2>
-
-      </div>
-
-
-      <div class="ccna-card reveal">
-
-
-        <!-- KİTAP KAPAĞI -->
 
         <div class="ccna-cover">
 
-          <img
-            src="assets/CCNA-Turkce-kapak.jpg"
-            alt="Sıfırdan CCNA Türkçe Öğrenme Kitabı kapağı"
-          >
+
+            <img
+
+                src="assets/CCNA-Turkce-kapak.jpg"
+
+                alt="Sıfırdan CCNA Türkçe Öğrenme Kitabı kapağı"
+
+                loading="lazy"
+
+            >
+
 
         </div>
 
 
-        <!-- KİTAP BİLGİLERİ -->
+
+
+        <!-- İÇERİK -->
+
 
         <div class="ccna-content">
 
-          <div class="ccna-meta">
-
-            <span class="ccna-badge">
-              Türkçe
-            </span>
-
-            <span class="ccna-badge">
-              Network
-            </span>
-
-            <span class="ccna-badge">
-              CCNA 200-301 v1.1
-            </span>
-
-          </div>
 
 
-          <h3>
-            Sıfırdan CCNA Türkçe Öğrenme Kitabı
-          </h3>
+            <div class="ccna-meta">
 
 
-          <p>
+                <span class="ccna-badge">
 
-            Ağ teknolojilerini sıfırdan öğrenmek ve CCNA konularını
-            Türkçe olarak çalışmak için hazırlanmış kapsamlı çalışma
-            kaynağı. Temel ağ kavramlarından başlayarak IPv4 ve IPv6,
-            switching, routing, güvenlik, kablosuz ağlar, servisler,
-            otomasyon ve uygulamalı laboratuvar konularını içerir.
+                    Türkçe
 
-          </p>
+                </span>
 
 
-          <div class="ccna-topics">
+                <span class="ccna-badge">
 
-            <span>IPv4</span>
-            <span>IPv6</span>
-            <span>Subnetting</span>
-            <span>VLSM</span>
-            <span>Cisco IOS</span>
-            <span>VLAN</span>
-            <span>Trunk</span>
-            <span>STP</span>
-            <span>EtherChannel</span>
-            <span>Routing</span>
-            <span>OSPF</span>
-            <span>DHCP</span>
-            <span>DNS</span>
-            <span>NAT</span>
-            <span>ACL</span>
-            <span>Wireless</span>
-            <span>Network Security</span>
-            <span>Automation</span>
-            <span>Packet Tracer</span>
-            <span>Wireshark</span>
+                    Network
 
-          </div>
+                </span>
 
 
-          <div class="ccna-actions">
+                <span class="ccna-badge">
 
-            <a
-              class="btn btn-primary"
-              href="CCNA-Turkce-v2.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              PDF'yi Görüntüle ↗
-            </a>
+                    CCNA 200-301 v1.1
+
+                </span>
 
 
-            <a
-              class="btn btn-secondary"
-              href="CCNA-Turkce-v2.pdf"
-              download
-            >
-              PDF'yi İndir ↓
-            </a>
-
-          </div>
+            </div>
 
 
-          <p class="ccna-note">
 
-            Bu çalışma resmi bir Cisco yayını değildir.
-            CCNA konularını öğrenme ve uygulama amacıyla kullanılan
-            kişisel bir çalışma kaynağıdır.
+            <h3>
 
-          </p>
+                Sıfırdan CCNA Türkçe Öğrenme Kitabı
+
+            </h3>
+
+
+
+            <p class="ccna-description">
+
+                Ağ teknolojilerini sıfırdan öğrenmek ve
+                CCNA konularını Türkçe olarak çalışmak
+                için hazırlanmış kapsamlı çalışma kaynağı.
+
+                Temel ağ kavramlarından başlayarak
+                IPv4 ve IPv6, switching, routing,
+                güvenlik, kablosuz ağlar, servisler,
+                otomasyon ve uygulamalı laboratuvar
+                konularını içerir.
+
+            </p>
+
+
+
+            <div class="ccna-topics">
+
+
+                <span>IPv4</span>
+
+                <span>IPv6</span>
+
+                <span>Subnetting</span>
+
+                <span>VLSM</span>
+
+                <span>Cisco IOS</span>
+
+                <span>VLAN</span>
+
+                <span>Trunk</span>
+
+                <span>STP</span>
+
+                <span>EtherChannel</span>
+
+                <span>Routing</span>
+
+                <span>OSPF</span>
+
+                <span>DHCP</span>
+
+                <span>DNS</span>
+
+                <span>NAT</span>
+
+                <span>ACL</span>
+
+                <span>Wireless</span>
+
+                <span>Network Security</span>
+
+                <span>Automation</span>
+
+                <span>Packet Tracer</span>
+
+                <span>Wireshark</span>
+
+
+            </div>
+
+
+
+            <div class="ccna-actions">
+
+
+
+                <a
+
+                    class="btn btn-primary"
+
+                    href="./CCNA-Turkce-v2.pdf"
+
+                    target="_blank"
+
+                    rel="noopener noreferrer"
+
+                >
+
+                    PDF'yi Görüntüle ↗
+
+                </a>
+
+
+
+
+                <a
+
+                    class="btn btn-secondary"
+
+                    href="./CCNA-Turkce-v2.pdf"
+
+                    download="CCNA-Turkce-v2.pdf"
+
+                >
+
+                    PDF'yi İndir ↓
+
+                </a>
+
+
+            </div>
+
+
+
+            <p class="ccna-note">
+
+                Bu çalışma resmi bir Cisco yayını değildir.
+                CCNA konularını öğrenme ve uygulama amacıyla
+                kullanılan kişisel bir çalışma kaynağıdır.
+
+            </p>
+
 
         </div>
 
-      </div>
 
-    </section>
-
+    </div>
 
 
-    <!-- =========================
-         PROJELER
-    ========================== -->
+</section>
 
-    <section
-      class="section-shell"
-      id="projects"
-    >
 
-      <div class="section-heading reveal">
+
+
+<!-- ==================================================
+     PROJELER
+================================================== -->
+
+<section
+    class="section-shell"
+    id="projects"
+>
+
+
+    <div class="section-heading reveal">
+
 
         <span class="section-index">
-          05 / SEÇİLİ PROJELER
+
+            05 / SEÇİLİ PROJELER
+
         </span>
 
+
         <h2>
-          Fikirden çalışan sisteme.
+
+            Fikirden çalışan sisteme.
+
         </h2>
 
-      </div>
 
-
-      <div class="project-grid">
-
-
-        <article class="project-card reveal">
-
-          <div class="project-number">
-            01
-          </div>
-
-          <div class="project-tag">
-            RF · Optimizasyon
-          </div>
-
-          <h3>
-            Anten Dizilerinde Sıfırlama
-          </h3>
-
-          <p>
-
-            Faz/genlik kontrollü doğrusal anten dizilerinde null
-            yönlendirme, kuantizasyon ve optimizasyon performansı
-            üzerine araştırma.
-
-          </p>
-
-          <div class="project-tech">
-            <span>MATLAB</span>
-            <span>Array Processing</span>
-          </div>
-
-        </article>
+    </div>
 
 
 
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            02
-          </div>
-
-          <div class="project-tag">
-            ESP32 · Kablosuz
-          </div>
-
-          <h3>
-            ESP-NOW Uzaktan Kontrol
-          </h3>
-
-          <p>
-
-            Joystick verisini kablosuz olarak aktaran, servo
-            mekanizmasını yöneten ve CRC tabanlı veri bütünlüğü
-            kullanan ESP32 sistemi.
-
-          </p>
-
-          <div class="project-tech">
-            <span>ESP32</span>
-            <span>C/C++</span>
-            <span>ESP-NOW</span>
-          </div>
-
-        </article>
+    <div class="project-grid">
 
 
 
         <article class="project-card reveal">
 
-          <div class="project-number">
-            03
-          </div>
 
-          <div class="project-tag">
-            Enerji · Tasarım
-          </div>
+            <div class="project-number">
 
-          <h3>
-            Fotovoltaik Sistem Tasarımı
-          </h3>
+                01
 
-          <p>
-
-            Off-grid ve on-grid PV sistemlerinde panel, inverter,
-            string/MPPT, akü ve kablo boyutlandırma çalışmaları.
-
-          </p>
-
-          <div class="project-tech">
-            <span>PV</span>
-            <span>Power Systems</span>
-            <span>MATLAB</span>
-          </div>
-
-        </article>
+            </div>
 
 
+            <div class="project-tag">
 
-        <article class="project-card reveal delay-1">
-
-          <div class="project-number">
-            04
-          </div>
-
-          <div class="project-tag">
-            Saha · Otomasyon
-          </div>
-
-          <h3>
-            Drone ile Boya Püskürtme Sistemi
-          </h3>
-
-          <p>
-
-            Yüksek yapılarda boya uygulamasını daha güvenli hale
-            getirmeyi amaçlayan, uzaktan kontrol ve püskürtme
-            mekanizmasını birleştiren bitirme projesi.
-
-          </p>
-
-          <div class="project-tech">
-            <span>Embedded</span>
-            <span>Remote Control</span>
-            <span>Design</span>
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         YAYINLAR
-    ========================== -->
-
-    <section
-      class="section-shell"
-      id="publications"
-    >
-
-      <div class="section-heading reveal">
-
-        <span class="section-index">
-          06 / YAYINLAR & BİLDİRİLER
-        </span>
-
-        <h2>
-          Akademik çalışmalarım ve yayınlarım.
-        </h2>
-
-      </div>
-
-
-      <div class="publication-list publication-cards">
-
-
-        <!-- KONFERANS BİLDİRİSİ -->
-
-        <article
-          class="publication publication-card reveal"
-        >
-
-          <span class="pub-year">
-            2026
-          </span>
-
-
-          <div class="pub-content">
-
-
-            <div class="pub-meta">
-
-              <span class="pub-badge">
-                Uluslararası Konferans Bildirisi
-              </span>
-
-              <span class="pub-status published">
-                Yayımlandı
-              </span>
+                RF · Optimizasyon
 
             </div>
 
 
             <h3>
 
-              Faz Kontrollü Doğrusal Anten Dizilerindeki Faz
-              Değerlerine Yapılan Yuvarlama İşleminin Sıfırlama
-              Performansı Üzerine Etkileri
+                Anten Dizilerinde Sıfırlama
 
             </h3>
 
 
-            <p class="pub-alt-title">
+            <p>
 
-              Effects of Rounding of Phase Values in Phase Controlled
-              Linear Antenna Arrays on Null Steering Performance
-
-            </p>
-
-
-            <p class="pub-authors">
-
-              <strong>
-                Dr. Öğr. Üyesi Filiz Karaömerlioğlu
-              </strong>,
-
-              <strong>
-                Fatih Uyar
-              </strong>,
-
-              <strong>
-                Prof. Dr. Ali Akdağlı
-              </strong>,
-
-              <strong>
-                Doç. Dr. Ali Yıldız
-              </strong>
+                Faz/genlik kontrollü doğrusal anten
+                dizilerinde null yönlendirme,
+                kuantizasyon ve optimizasyon
+                performansı üzerine araştırma.
 
             </p>
 
 
-            <div class="pub-info-grid">
-
-
-              <div>
+            <div class="project-tech">
 
                 <span>
-                  Etkinlik
+                    MATLAB
                 </span>
-
-                <strong>
-                  III. International Mediterranean Scientific
-                  Studies Conference
-                </strong>
-
-              </div>
-
-
-              <div>
 
                 <span>
-                  Tarih / Yer
+                    Array Processing
                 </span>
 
-                <strong>
-                  13–15 Mart 2026 · Adana, Türkiye
-                </strong>
-
-              </div>
+            </div>
 
 
-              <div>
+        </article>
+
+
+
+
+        <article
+            class="project-card reveal delay-1"
+        >
+
+
+            <div class="project-number">
+
+                02
+
+            </div>
+
+
+            <div class="project-tag">
+
+                ESP32 · Kablosuz
+
+            </div>
+
+
+            <h3>
+
+                ESP-NOW Uzaktan Kontrol
+
+            </h3>
+
+
+            <p>
+
+                Joystick verisini kablosuz olarak
+                aktaran, servo mekanizmasını yöneten
+                ve CRC tabanlı veri bütünlüğü
+                kullanan ESP32 sistemi.
+
+            </p>
+
+
+            <div class="project-tech">
 
                 <span>
-                  Yayın
+                    ESP32
                 </span>
-
-                <strong>
-                  Conference Book
-                </strong>
-
-              </div>
-
-
-              <div>
 
                 <span>
-                  Alan
+                    C/C++
                 </span>
 
-                <strong>
-                  Anten Dizileri · Faz Kuantizasyonu · Null Steering
-                </strong>
+                <span>
+                    ESP-NOW
+                </span>
 
-              </div>
+            </div>
+
+
+        </article>
+
+
+
+
+        <article class="project-card reveal">
+
+
+            <div class="project-number">
+
+                03
+
+            </div>
+
+
+            <div class="project-tag">
+
+                Enerji · Tasarım
+
+            </div>
+
+
+            <h3>
+
+                Fotovoltaik Sistem Tasarımı
+
+            </h3>
+
+
+            <p>
+
+                Off-grid ve on-grid PV sistemlerinde
+                panel, inverter, string/MPPT,
+                akü ve kablo boyutlandırma çalışmaları.
+
+            </p>
+
+
+            <div class="project-tech">
+
+                <span>
+                    PV
+                </span>
+
+                <span>
+                    Power Systems
+                </span>
+
+                <span>
+                    MATLAB
+                </span>
+
+            </div>
+
+
+        </article>
+
+
+
+
+        <article
+            class="project-card reveal delay-1"
+        >
+
+
+            <div class="project-number">
+
+                04
+
+            </div>
+
+
+            <div class="project-tag">
+
+                Saha · Otomasyon
+
+            </div>
+
+
+            <h3>
+
+                Drone ile Boya Püskürtme Sistemi
+
+            </h3>
+
+
+            <p>
+
+                Yüksek yapılarda boya uygulamasını
+                daha güvenli hale getirmeyi amaçlayan,
+                uzaktan kontrol ve püskürtme
+                mekanizmasını birleştiren bitirme projesi.
+
+            </p>
+
+
+            <div class="project-tech">
+
+                <span>
+                    Embedded
+                </span>
+
+                <span>
+                    Remote Control
+                </span>
+
+                <span>
+                    Design
+                </span>
+
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+<!-- ==================================================
+     YAYINLAR
+================================================== -->
+
+<section
+    class="section-shell"
+    id="publications"
+>
+
+
+    <div class="section-heading reveal">
+
+
+        <span class="section-index">
+
+            06 / YAYINLAR & BİLDİRİLER
+
+        </span>
+
+
+        <h2>
+
+            Akademik çalışmalarım ve yayınlarım.
+
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="publication-cards">
+
+
+
+        <!-- KONFERANS -->
+
+
+        <article
+            class="publication-card reveal"
+        >
+
+
+            <div class="pub-year">
+
+                2026
+
+            </div>
+
+
+
+            <div class="pub-content">
+
+
+
+                <div class="pub-meta">
+
+
+                    <span class="pub-badge">
+
+                        Uluslararası Konferans Bildirisi
+
+                    </span>
+
+
+                    <span
+                        class="pub-status published"
+                    >
+
+                        Yayımlandı
+
+                    </span>
+
+
+                </div>
+
+
+
+                <h3>
+
+                    Faz Kontrollü Doğrusal Anten
+                    Dizilerindeki Faz Değerlerine
+                    Yapılan Yuvarlama İşleminin
+                    Sıfırlama Performansı Üzerine Etkileri
+
+                </h3>
+
+
+
+                <p class="pub-alt-title">
+
+                    Effects of Rounding of Phase Values
+                    in Phase Controlled Linear Antenna
+                    Arrays on Null Steering Performance
+
+                </p>
+
+
+
+                <p class="pub-authors">
+
+                    Dr. Öğr. Üyesi
+                    <strong>
+                        Filiz Karaömerlioğlu
+                    </strong>,
+
+                    <strong>
+                        Fatih Uyar
+                    </strong>,
+
+                    Prof. Dr.
+                    <strong>
+                        Ali Akdağlı
+                    </strong>,
+
+                    Doç. Dr.
+                    <strong>
+                        Ali Yıldız
+                    </strong>
+
+                </p>
+
+
+
+                <div class="pub-info-grid">
+
+
+
+                    <div>
+
+
+                        <span>
+
+                            Etkinlik
+
+                        </span>
+
+
+                        <strong>
+
+                            III. International Mediterranean
+                            Scientific Studies Conference
+
+                        </strong>
+
+
+                    </div>
+
+
+
+
+                    <div>
+
+
+                        <span>
+
+                            Tarih / Yer
+
+                        </span>
+
+
+                        <strong>
+
+                            13–15 Mart 2026 ·
+                            Adana, Türkiye
+
+                        </strong>
+
+
+                    </div>
+
+
+
+
+                    <div>
+
+
+                        <span>
+
+                            Yayın
+
+                        </span>
+
+
+                        <strong>
+
+                            Conference Book
+
+                        </strong>
+
+
+                    </div>
+
+
+
+
+                    <div>
+
+
+                        <span>
+
+                            Alan
+
+                        </span>
+
+
+                        <strong>
+
+                            Anten Dizileri ·
+                            Faz Kuantizasyonu ·
+                            Null Steering
+
+                        </strong>
+
+
+                    </div>
+
+
+                </div>
 
 
             </div>
 
-          </div>
 
         </article>
+
+
 
 
 
         <!-- DERGİ MAKALESİ -->
 
+
         <article
-          class="publication publication-card reveal"
+            class="publication-card reveal"
         >
 
-          <span class="pub-year">
-            2026
-          </span>
 
+            <div class="pub-year">
 
-          <div class="pub-content">
-
-
-            <div class="pub-meta">
-
-              <span class="pub-badge">
-                Dergi Makalesi
-              </span>
-
-              <span class="pub-status accepted">
-                Kabul Edildi
-              </span>
+                2026
 
             </div>
 
 
-            <h3>
 
-              Investigation of Quantization Effects on
-              Amplitude-Only Null Steering Performance in
-              Linear Antenna Arrays
-
-            </h3>
+            <div class="pub-content">
 
 
-            <p class="pub-alt-title">
 
-              Genlik kontrollü doğrusal anten dizilerinde kuantizasyon
-              etkilerinin null steering performansı üzerindeki
-              etkilerinin incelenmesi.
-
-            </p>
+                <div class="pub-meta">
 
 
-            <div class="pub-info-grid">
+                    <span class="pub-badge">
+
+                        Dergi Makalesi
+
+                    </span>
 
 
-              <div>
+                    <span
+                        class="pub-status accepted"
+                    >
 
-                <span>
-                  Dergi
-                </span>
+                        Kabul Edildi
 
-                <strong>
-                  International Advanced Researches and Engineering Journal
-                </strong>
-
-              </div>
+                    </span>
 
 
-              <div>
-
-                <span>
-                  Durum
-                </span>
-
-                <strong>
-                  Accepted
-                </strong>
-
-              </div>
+                </div>
 
 
-              <div>
 
-                <span>
-                  Makale ID
-                </span>
+                <h3>
 
-                <strong>
-                  1985042
-                </strong>
+                    Investigation of Quantization Effects
+                    on Amplitude-Only Null Steering
+                    Performance in Linear Antenna Arrays
 
-              </div>
+                </h3>
 
 
-              <div>
 
-                <span>
-                  Alan
-                </span>
+                <p class="pub-alt-title">
 
-                <strong>
-                  Amplitude-Only Null Steering · Quantization ·
-                  Linear Antenna Arrays
-                </strong>
+                    Genlik kontrollü doğrusal anten
+                    dizilerinde kuantizasyon etkilerinin
+                    null steering performansı üzerindeki
+                    etkilerinin incelenmesi.
 
-              </div>
+                </p>
+
+
+
+                <div class="pub-info-grid">
+
+
+
+                    <div>
+
+
+                        <span>
+
+                            Dergi
+
+                        </span>
+
+
+                        <strong>
+
+                            International Advanced Researches
+                            and Engineering Journal
+
+                        </strong>
+
+
+                    </div>
+
+
+
+
+                    <div>
+
+
+                        <span>
+
+                            Durum
+
+                        </span>
+
+
+                        <strong>
+
+                            Accepted
+
+                        </strong>
+
+
+                    </div>
+
+
+
+
+                    <div>
+
+
+                        <span>
+
+                            Makale ID
+
+                        </span>
+
+
+                        <strong>
+
+                            1985042
+
+                        </strong>
+
+
+                    </div>
+
+
+
+
+                    <div>
+
+
+                        <span>
+
+                            Alan
+
+                        </span>
+
+
+                        <strong>
+
+                            Amplitude-Only Null Steering ·
+                            Quantization ·
+                            Linear Antenna Arrays
+
+                        </strong>
+
+
+                    </div>
+
+
+                </div>
 
 
             </div>
 
-          </div>
 
         </article>
 
 
-      </div>
-
-    </section>
+    </div>
 
 
+</section>
 
-    <!-- =========================
-         YETENEKLER
-    ========================== -->
 
-    <section
-      class="section-shell"
-      id="skills"
-    >
 
-      <div class="section-heading reveal">
+
+<!-- ==================================================
+     YETENEKLER
+================================================== -->
+
+<section
+    class="section-shell"
+    id="skills"
+>
+
+
+    <div class="section-heading reveal">
+
 
         <span class="section-index">
-          07 / YETENEKLER
+
+            07 / YETENEKLER
+
         </span>
 
+
         <h2>
-          Kullandığım teknoloji ve araçlar.
+
+            Kullandığım teknoloji ve araçlar.
+
         </h2>
 
-      </div>
 
-
-      <div class="skills-wrap reveal">
-
-        <span>Network Systems</span>
-        <span>Switching</span>
-        <span>Routing</span>
-        <span>IP Addressing</span>
-        <span>Subnetting</span>
-        <span>VLAN</span>
-        <span>Wireless Networks</span>
-        <span>PoE</span>
-        <span>CCTV / IP Camera</span>
-        <span>NVR</span>
-        <span>SSH</span>
-        <span>Packet Tracer</span>
-        <span>Wireshark</span>
-        <span>Python</span>
-        <span>MATLAB / Simulink</span>
-        <span>C / C++</span>
-        <span>HTML / CSS</span>
-        <span>AutoCAD</span>
-        <span>PLC</span>
-        <span>ESP32</span>
-        <span>RF Measurement</span>
-        <span>Power Systems</span>
-        <span>MS Office</span>
-
-      </div>
-
-    </section>
+    </div>
 
 
 
-    <!-- =========================
-         İLETİŞİM
-    ========================== -->
+    <div class="skills-wrap reveal">
 
-    <section
-      class="contact section-shell"
-      id="contact"
-    >
 
-      <div class="contact-card reveal">
+        <span>
+            Network Systems
+        </span>
+
+        <span>
+            Switching
+        </span>
+
+        <span>
+            Routing
+        </span>
+
+        <span>
+            IP Addressing
+        </span>
+
+        <span>
+            Subnetting
+        </span>
+
+        <span>
+            VLAN
+        </span>
+
+        <span>
+            Wireless Networks
+        </span>
+
+        <span>
+            PoE
+        </span>
+
+        <span>
+            CCTV / IP Camera
+        </span>
+
+        <span>
+            NVR
+        </span>
+
+        <span>
+            SSH
+        </span>
+
+        <span>
+            Packet Tracer
+        </span>
+
+        <span>
+            Wireshark
+        </span>
+
+        <span>
+            Python
+        </span>
+
+        <span>
+            MATLAB / Simulink
+        </span>
+
+        <span>
+            C / C++
+        </span>
+
+        <span>
+            HTML / CSS
+        </span>
+
+        <span>
+            AutoCAD
+        </span>
+
+        <span>
+            PLC
+        </span>
+
+        <span>
+            ESP32
+        </span>
+
+        <span>
+            RF Measurement
+        </span>
+
+        <span>
+            Power Systems
+        </span>
+
+        <span>
+            MS Office
+        </span>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+<!-- ==================================================
+     İLETİŞİM
+================================================== -->
+
+<section
+    class="contact section-shell"
+    id="contact"
+>
+
+
+    <div class="contact-card reveal">
 
 
         <span class="section-index">
-          08 / İLETİŞİM
+
+            08 / İLETİŞİM
+
         </span>
 
 
         <h2>
-          Bir proje veya fırsat için konuşalım.
+
+            Bir proje veya fırsat için konuşalım.
+
         </h2>
 
 
         <p>
 
-          Teknik projeler, iş fırsatları veya akademik çalışmalar
-          için benimle iletişime geçebilirsin.
+            Teknik projeler, iş fırsatları veya
+            akademik çalışmalar için benimle
+            iletişime geçebilirsin.
 
         </p>
+
 
 
         <div class="contact-actions">
 
 
-          <a
-            class="btn btn-primary"
-            href="mailto:uyarfatih5@gmail.com"
-          >
-            uyarfatih5@gmail.com ↗
-          </a>
+            <a
+                class="btn btn-primary"
+                href="mailto:uyarfatih5@gmail.com"
+            >
+
+                uyarfatih5@gmail.com ↗
+
+            </a>
 
 
-          <a
-            class="btn btn-secondary"
-            href="https://github.com/fatihuyar"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub ↗
-          </a>
+
+            <a
+                class="btn btn-secondary"
+                href="https://github.com/fatihuyar"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                GitHub ↗
+
+            </a>
 
 
         </div>
 
-      </div>
 
-    </section>
-
-
-  </main>
+    </div>
 
 
+</section>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
 
-  <footer class="footer section-shell">
+</main>
+
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer
+    class="footer section-shell"
+>
+
 
     <span>
-      © <span id="year"></span> Fatih Uyar
+
+        ©
+
+        <span id="year">
+
+            2026
+
+        </span>
+
+        Fatih Uyar
+
     </span>
 
+
     <span>
-      Electrical & Electronics Engineer
+
+        Electrical & Electronics Engineer
+
     </span>
+
 
     <a href="#top">
-      Yukarı ↑
+
+        Yukarı ↑
+
     </a>
 
-  </footer>
+
+</footer>
 
 
-  <script src="script.js"></script>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+    /*
+    ================================================
+    YEDEK JS
+    script.js çalışmasa bile temel fonksiyonlar çalışır
+    ================================================
+    */
+
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+
+
+            /* YIL */
+
+            const year =
+                document.getElementById(
+                    "year"
+                );
+
+            if (year) {
+
+                year.textContent =
+                    new Date().getFullYear();
+
+            }
+
+
+
+            /* MOBİL MENÜ */
+
+            const menuButton =
+                document.querySelector(
+                    ".menu-btn"
+                );
+
+            const nav =
+                document.querySelector(
+                    ".nav"
+                );
+
+
+            if (
+                menuButton &&
+                nav
+            ) {
+
+
+                menuButton.addEventListener(
+                    "click",
+                    function () {
+
+
+                        nav.classList.toggle(
+                            "open"
+                        );
+
+
+                        const isOpen =
+                            nav.classList.contains(
+                                "open"
+                            );
+
+
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            isOpen
+                        );
+
+
+                    }
+                );
+
+
+                nav.querySelectorAll(
+                    "a"
+                ).forEach(
+                    function (link) {
+
+
+                        link.addEventListener(
+                            "click",
+                            function () {
+
+
+                                nav.classList.remove(
+                                    "open"
+                                );
+
+
+                                menuButton.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+
+
+                            }
+                        );
+
+
+                    }
+                );
+
+
+            }
+
+
+
+            /* ANİMASYON */
+
+            const revealElements =
+                document.querySelectorAll(
+                    ".reveal"
+                );
+
+
+            if (
+                "IntersectionObserver"
+                in window
+            ) {
+
+
+                const observer =
+                    new IntersectionObserver(
+
+                        function (
+                            entries,
+                            observerInstance
+                        ) {
+
+
+                            entries.forEach(
+                                function (entry) {
+
+
+                                    if (
+                                        entry.isIntersecting
+                                    ) {
+
+
+                                        entry.target.classList.add(
+                                            "visible"
+                                        );
+
+
+                                        observerInstance.unobserve(
+                                            entry.target
+                                        );
+
+
+                                    }
+
+
+                                }
+                            );
+
+
+                        },
+
+                        {
+                            threshold: 0.08
+                        }
+
+                    );
+
+
+                revealElements.forEach(
+                    function (element) {
+
+
+                        observer.observe(
+                            element
+                        );
+
+
+                    }
+                );
+
+
+            } else {
+
+
+                revealElements.forEach(
+                    function (element) {
+
+
+                        element.classList.add(
+                            "visible"
+                        );
+
+
+                    }
+                );
+
+
+            }
+
+
+        }
+    );
+
+</script>
+
 
 </body>
+
 </html>
-
-
-
-
