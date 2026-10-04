@@ -172,12 +172,167 @@
       line-height: 1.45;
     }
 
-    /* CCTV / IP KAMERA ETİKETİNİ ÜSTE AL */
+
+    /* =========================
+       HERO ETİKETLERİ
+    ========================== */
+
     .chip-d {
       top: 6%;
       left: 50%;
       transform: translateX(-50%);
     }
+
+
+    /* =========================
+       CCNA KAYNAĞI
+    ========================== */
+
+    .ccna-card {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 40px;
+      padding: 38px;
+
+      border: 1px solid var(--line);
+      border-radius: 28px;
+
+      background:
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(112,225,245,.12),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.06),
+          rgba(255,255,255,.025)
+        );
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ccna-card::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -120px;
+      bottom: -140px;
+      border-radius: 50%;
+      background: rgba(138,125,255,.10);
+      filter: blur(35px);
+    }
+
+    .ccna-icon {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      border: 1px solid rgba(112,225,245,.2);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(112,225,245,.13),
+          rgba(138,125,255,.08)
+        );
+      position: relative;
+      z-index: 1;
+    }
+
+    .ccna-icon span {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      background:
+        linear-gradient(
+          100deg,
+          var(--accent),
+          #b0a7ff
+        );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .ccna-icon strong {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: .12em;
+    }
+
+    .ccna-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ccna-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 17px;
+    }
+
+    .ccna-badge {
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .ccna-content h3 {
+      margin-bottom: 14px;
+      font-size: clamp(28px, 3vw, 38px);
+    }
+
+    .ccna-content > p {
+      max-width: 800px;
+      color: var(--muted);
+    }
+
+    .ccna-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .ccna-topics span {
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: #d7e1ec;
+      font-size: 12px;
+    }
+
+    .ccna-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .ccna-note {
+      margin-top: 20px !important;
+      font-size: 12px !important;
+      color: #77889d !important;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
 
     @media (max-width:700px) {
 
@@ -199,6 +354,24 @@
         top: 2%;
         left: 50%;
         transform: translateX(-50%);
+      }
+
+      .ccna-card {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 25px;
+      }
+
+      .ccna-icon {
+        min-height: 150px;
+      }
+
+      .ccna-actions {
+        flex-direction: column;
+      }
+
+      .ccna-actions .btn {
+        width: 100%;
       }
 
     }
@@ -259,6 +432,10 @@
 
       <a href="#network">
         Ağ
+      </a>
+
+      <a href="#ccna">
+        CCNA
       </a>
 
       <a href="#projects">
@@ -334,11 +511,8 @@
             class="btn btn-primary"
             href="#projects"
           >
-
             Projelerimi İncele
-
             <span>↘</span>
-
           </a>
 
 
@@ -346,9 +520,7 @@
             class="btn btn-secondary"
             href="mailto:uyarfatih5@gmail.com"
           >
-
             Bana Ulaş
-
           </a>
 
         </div>
@@ -463,35 +635,30 @@
       <div class="marquee-track">
 
         <span>Elektrik-Elektronik</span>
-
         <i>✦</i>
 
         <span>Ağ Sistemleri</span>
-
         <i>✦</i>
 
         <span>Switch & Router</span>
-
         <i>✦</i>
 
         <span>RF & Anten</span>
-
         <i>✦</i>
 
         <span>CCTV / IP Kamera</span>
+        <i>✦</i>
 
+        <span>CCNA</span>
         <i>✦</i>
 
         <span>ESP32</span>
-
         <i>✦</i>
 
         <span>MATLAB</span>
-
         <i>✦</i>
 
         <span>Python</span>
-
         <i>✦</i>
 
       </div>
@@ -823,9 +990,7 @@
           <div class="project-tech">
 
             <span>Switching</span>
-
             <span>IP Addressing</span>
-
             <span>Troubleshooting</span>
 
           </div>
@@ -859,9 +1024,7 @@
           <div class="project-tech">
 
             <span>CCTV</span>
-
             <span>PoE</span>
-
             <span>NVR</span>
 
           </div>
@@ -895,9 +1058,7 @@
           <div class="project-tech">
 
             <span>Access Point</span>
-
             <span>WISP</span>
-
             <span>Wireless</span>
 
           </div>
@@ -931,15 +1092,150 @@
           <div class="project-tech">
 
             <span>SSH</span>
-
             <span>Network Support</span>
-
             <span>Diagnostics</span>
 
           </div>
 
         </article>
 
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CCNA ÇALIŞMALARI
+    ========================== -->
+
+    <section
+      class="section-shell"
+      id="ccna"
+    >
+
+      <div class="section-heading reveal">
+
+        <span class="section-index">
+          04 / CCNA ÇALIŞMALARI
+        </span>
+
+        <h2>
+          Ağ teknolojileri üzerine çalışma kaynağım.
+        </h2>
+
+      </div>
+
+
+      <div class="ccna-card reveal">
+
+        <div class="ccna-icon">
+
+          <span>
+            CCNA
+          </span>
+
+          <strong>
+            200-301
+          </strong>
+
+        </div>
+
+
+        <div class="ccna-content">
+
+          <div class="ccna-meta">
+
+            <span class="ccna-badge">
+              Türkçe
+            </span>
+
+            <span class="ccna-badge">
+              Network
+            </span>
+
+            <span class="ccna-badge">
+              CCNA 200-301 v1.1
+            </span>
+
+          </div>
+
+
+          <h3>
+            Sıfırdan CCNA Türkçe Öğrenme Kitabı
+          </h3>
+
+
+          <p>
+
+            Ağ teknolojilerini sıfırdan öğrenmek ve CCNA konularını
+            Türkçe olarak çalışmak için hazırlanmış kapsamlı çalışma
+            kaynağı. Temel ağ kavramlarından başlayarak IPv4 ve IPv6,
+            switching, routing, güvenlik, kablosuz ağlar, servisler,
+            otomasyon ve uygulamalı laboratuvar konularını içerir.
+
+          </p>
+
+
+          <div class="ccna-topics">
+
+            <span>IPv4</span>
+            <span>IPv6</span>
+            <span>Subnetting</span>
+            <span>VLSM</span>
+            <span>Cisco IOS</span>
+            <span>VLAN</span>
+            <span>Trunk</span>
+            <span>STP</span>
+            <span>EtherChannel</span>
+            <span>Routing</span>
+            <span>OSPF</span>
+            <span>DHCP</span>
+            <span>DNS</span>
+            <span>NAT</span>
+            <span>ACL</span>
+            <span>Wireless</span>
+            <span>Network Security</span>
+            <span>Automation</span>
+            <span>Packet Tracer</span>
+            <span>Wireshark</span>
+
+          </div>
+
+
+          <div class="ccna-actions">
+
+            <a
+              class="btn btn-primary"
+              href="CCNA-Turkce-v2.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              PDF'yi Görüntüle ↗
+            </a>
+
+
+            <a
+              class="btn btn-secondary"
+              href="CCNA-Turkce-v2.pdf"
+              download
+            >
+              PDF'yi İndir ↓
+            </a>
+
+          </div>
+
+
+          <p class="ccna-note">
+
+            Bu çalışma resmi bir Cisco yayını değildir.
+            CCNA konularını öğrenme ve uygulama amacıyla kullanılan
+            kişisel bir çalışma kaynağıdır.
+
+          </p>
+
+        </div>
 
       </div>
 
@@ -959,7 +1255,7 @@
       <div class="section-heading reveal">
 
         <span class="section-index">
-          04 / SEÇİLİ PROJELER
+          05 / SEÇİLİ PROJELER
         </span>
 
         <h2>
@@ -997,7 +1293,6 @@
           <div class="project-tech">
 
             <span>MATLAB</span>
-
             <span>Array Processing</span>
 
           </div>
@@ -1031,9 +1326,7 @@
           <div class="project-tech">
 
             <span>ESP32</span>
-
             <span>C/C++</span>
-
             <span>ESP-NOW</span>
 
           </div>
@@ -1066,9 +1359,7 @@
           <div class="project-tech">
 
             <span>PV</span>
-
             <span>Power Systems</span>
-
             <span>MATLAB</span>
 
           </div>
@@ -1102,9 +1393,7 @@
           <div class="project-tech">
 
             <span>Embedded</span>
-
             <span>Remote Control</span>
-
             <span>Design</span>
 
           </div>
@@ -1130,7 +1419,7 @@
       <div class="section-heading reveal">
 
         <span class="section-index">
-          05 / YAYINLAR & BİLDİRİLER
+          06 / YAYINLAR & BİLDİRİLER
         </span>
 
         <h2>
@@ -1398,7 +1687,7 @@
       <div class="section-heading reveal">
 
         <span class="section-index">
-          06 / YETENEKLER
+          07 / YETENEKLER
         </span>
 
         <h2>
@@ -1410,73 +1699,29 @@
 
       <div class="skills-wrap reveal">
 
-        <span>
-          Network Systems
-        </span>
-
-        <span>
-          Switching
-        </span>
-
-        <span>
-          IP Addressing
-        </span>
-
-        <span>
-          Wireless Networks
-        </span>
-
-        <span>
-          PoE
-        </span>
-
-        <span>
-          CCTV / IP Camera
-        </span>
-
-        <span>
-          NVR
-        </span>
-
-        <span>
-          Python
-        </span>
-
-        <span>
-          MATLAB / Simulink
-        </span>
-
-        <span>
-          C / C++
-        </span>
-
-        <span>
-          HTML / CSS
-        </span>
-
-        <span>
-          AutoCAD
-        </span>
-
-        <span>
-          PLC
-        </span>
-
-        <span>
-          ESP32
-        </span>
-
-        <span>
-          RF Measurement
-        </span>
-
-        <span>
-          Power Systems
-        </span>
-
-        <span>
-          MS Office
-        </span>
+        <span>Network Systems</span>
+        <span>Switching</span>
+        <span>Routing</span>
+        <span>IP Addressing</span>
+        <span>Subnetting</span>
+        <span>VLAN</span>
+        <span>Wireless Networks</span>
+        <span>PoE</span>
+        <span>CCTV / IP Camera</span>
+        <span>NVR</span>
+        <span>SSH</span>
+        <span>Packet Tracer</span>
+        <span>Wireshark</span>
+        <span>Python</span>
+        <span>MATLAB / Simulink</span>
+        <span>C / C++</span>
+        <span>HTML / CSS</span>
+        <span>AutoCAD</span>
+        <span>PLC</span>
+        <span>ESP32</span>
+        <span>RF Measurement</span>
+        <span>Power Systems</span>
+        <span>MS Office</span>
 
       </div>
 
@@ -1497,7 +1742,7 @@
 
 
         <span class="section-index">
-          07 / İLETİŞİM
+          08 / İLETİŞİM
         </span>
 
 
@@ -1521,9 +1766,7 @@
             class="btn btn-primary"
             href="mailto:uyarfatih5@gmail.com"
           >
-
             uyarfatih5@gmail.com ↗
-
           </a>
 
 
@@ -1533,9 +1776,7 @@
             target="_blank"
             rel="noreferrer"
           >
-
             GitHub ↗
-
           </a>
 
 
