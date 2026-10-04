@@ -42,14 +42,12 @@
       padding: 30px;
       border: 1px solid var(--line);
       border-radius: 24px;
-
       background:
         linear-gradient(
           145deg,
           rgba(255,255,255,.055),
           rgba(255,255,255,.025)
         );
-
       transition: .3s;
       position: relative;
       overflow: hidden;
@@ -78,7 +76,6 @@
         800 14px
         "Space Grotesk",
         sans-serif;
-
       color: var(--accent);
       letter-spacing: .05em;
       padding-top: 5px;
@@ -101,12 +98,10 @@
       display: inline-flex;
       align-items: center;
       padding: 7px 11px;
-
       border-radius: 999px;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: .04em;
-
       border: 1px solid var(--line);
     }
 
@@ -121,10 +116,10 @@
       border-color: rgba(114,242,179,.2);
     }
 
-    .pub-status.review {
-      color: #ffd37a;
-      background: rgba(255,211,122,.07);
-      border-color: rgba(255,211,122,.2);
+    .pub-status.accepted {
+      color: #72f2b3;
+      background: rgba(114,242,179,.07);
+      border-color: rgba(114,242,179,.2);
     }
 
     .publication-card h3 {
@@ -155,12 +150,9 @@
 
     .pub-info-grid > div {
       padding: 14px 15px;
-
       border: 1px solid var(--line);
       border-radius: 15px;
-
       background: rgba(255,255,255,.025);
-
       display: flex;
       flex-direction: column;
       gap: 3px;
@@ -180,6 +172,13 @@
       line-height: 1.45;
     }
 
+    /* CCTV / IP KAMERA ETİKETİNİ ÜSTE AL */
+    .chip-d {
+      top: 6%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     @media (max-width:700px) {
 
       .publication-card {
@@ -194,6 +193,12 @@
 
       .publication-card h3 {
         font-size: 21px;
+      }
+
+      .chip-d {
+        top: 2%;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
     }
@@ -639,7 +644,7 @@
         <article class="timeline-item reveal">
 
           <div class="timeline-date">
-            2022–2026
+            2022–
           </div>
 
 
@@ -1129,7 +1134,7 @@
         </span>
 
         <h2>
-          Akademik çalışmalarım ve yayın süreçlerim.
+          Akademik çalışmalarım ve yayınlarım.
         </h2>
 
       </div>
@@ -1287,8 +1292,8 @@
                 Dergi Makalesi
               </span>
 
-              <span class="pub-status review">
-                Kabu Edildi
+              <span class="pub-status accepted">
+                Kabul Edildi
               </span>
 
             </div>
@@ -1335,7 +1340,7 @@
                 </span>
 
                 <strong>
-                   Accepted
+                  Accepted
                 </strong>
 
               </div>
